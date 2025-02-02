@@ -1,4 +1,4 @@
-/* Reset Geral */
+/* RESET GERAL */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -43,7 +43,7 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* Botão de Menu Hambúrguer */
+/* BOTÃO DE MENU HAMBÚRGUER */
 .menu-toggle {
     display: none;
     font-size: 30px;
@@ -78,7 +78,7 @@ section {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Certificados */
+/* CERTIFICADOS */
 .certificado-container {
     display: flex;
     flex-wrap: wrap;
@@ -97,7 +97,8 @@ section {
 }
 
 .certificado-card:hover {
-    transform: translateY(-10px);
+    transform: scale(1.05); /* Aumenta um pouco o tamanho ao passar o mouse */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
 }
 
 .certificado-card img {
@@ -122,13 +123,16 @@ section {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Formulário de Contato */
+/* FORMULÁRIO DE CONTATO */
 .contato {
     background-color: #fff;
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contato label {
@@ -159,11 +163,12 @@ section {
     background-color: #0056b3;
 }
 
-/* Responsividade */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
     nav ul {
         display: none;
         flex-direction: column;
+        width: 100%;
     }
 
     nav ul.active {
@@ -182,4 +187,23 @@ section {
         flex-direction: column;
         gap: 10px;
     }
+
+    header {
+        padding: 60px 20px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
