@@ -1,92 +1,1190 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Marcos, desenvolvedor de software e especialista em segurança da informação. Conheça minhas habilidades e certificações.">
-    <meta name="keywords" content="portfólio, desenvolvedor, segurança da informação, Python, Ethical Hacker, certificações">
-    <meta name="author" content="Marcos">
-    <title>Certificações - Marcos</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <meta name="description" content="Portfólio de Geoprocessamento - Análise Espacial, Python, SQL, Power BI e Sensoriamento Remoto.">
+    <meta name="keywords" content="GIS, Geoprocessamento, QGIS, Python, PostGIS, Power BI, Análise Espacial, GeoAI">
+    <meta name="author" content="SEU_NOME_COMPLETO">
+    <meta property="og:title" content="SEU_NOME - Analista GIS & Geoprocessamento">
+    <meta property="og:description" content="Especialista em análise espacial, automação de workflows GIS e visualização de dados territoriais.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seu-usuario.github.io">
+    <meta name="theme-color" content="#0f172a">
+    <title>SEU_NOME · Analista GIS</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        geo: {
+                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+                            400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
+                            800: '#166534', 900: '#14532d',
+                        },
+                        ocean: {
+                            400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1',
+                        },
+                        slate: {
+                            850: '#0f1729',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                        'shimmer': 'shimmer 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #0f172a; 
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #4ade80 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradient 6s ease infinite;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 222, 128, 0.06);
+        }
+        .glass-card-light {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 222, 128, 0.04);
+        }
+
+        /* Grid Pattern */
+        .grid-pattern {
+            background-image:
+                linear-gradient(rgba(74, 222, 128, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74, 222, 128, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Contour Lines */
+        .contour-field {
+            position: absolute;
+            inset: 0;
+            opacity: 0.25;
+            mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black 30%, transparent 85%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black 30%, transparent 85%);
+            pointer-events: none;
+        }
+        .contour-field path { fill: none; stroke-width: 1.5; }
+        .contour-drift {
+            animation: contourDrift 30s ease-in-out infinite alternate;
+        }
+        @keyframes contourDrift {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            100% { transform: translate(-1.5%, 1%) scale(1.04) rotate(0.5deg); }
+        }
+
+        /* Glow Ring */
+        .glow-ring {
+            animation: glowRing 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes glowRing {
+            0%, 100% { opacity: 0.3; transform: scale(0.95); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        /* Project Cards */
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.03), rgba(56, 189, 248, 0.03));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .project-card:hover::after { opacity: 1; }
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(74, 222, 128, 0.15);
+        }
+
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #4ade80, #38bdf8);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after { width: 100%; }
+
+        /* Skill Bars */
+        .skill-bar {
+            transition: width 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .skill-bar::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 2.5s infinite;
+        }
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+        .reveal-delay-4 { transition-delay: 0.32s; }
+
+        /* Timeline */
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12),
+                        0 0 0 8px rgba(22, 163, 74, 0.04);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            color: #4ade80;
+            padding: 0.2rem 0.7rem;
+            border-radius: 9999px;
+            font-size: 0.65rem;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            letter-spacing: 0.02em;
+        }
+        .status-badge-future {
+            background: rgba(251, 191, 36, 0.08);
+            border-color: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #1a3a2a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            animation: scrollBounce 2.4s ease-in-out infinite;
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.4; }
+            50% { transform: translateY(8px); opacity: 1; }
+        }
+
+        /* Focus */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid #4ade80;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Stats Counter */
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+            display: inline-block;
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(74, 222, 128, 0.2);
+            color: #ffffff;
+        }
+
+        /* Print Styles */
+        @media print {
+            .glass-card { background: #0f172a !important; border-color: #1e293b !important; }
+            .contour-field { display: none; }
+            .project-card:hover { transform: none !important; }
+        }
+    </style>
 </head>
-<body>
-    <!-- MENU DE NAVEGAÇÃO -->
-    <nav>
-        <ul>
-            <li><a href="index.html">🏠 Início</a></li>
-           
-            <li><a href="https://github.com/cursoctl" target="_blank">🚀 GitHub</a></li>
-            <li><a href="mailto:marcosdejair497@gmail.com">📩 Contato</a></li>
-        </ul>
-        <!-- Botão de Menu Hambúrguer -->
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<body class="bg-slate-950 text-slate-200 antialiased grid-pattern">
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="glass-card border-b border-geo-900/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-14 sm:h-16">
+                    <div class="flex items-center gap-3">
+                        <div class="relative flex-shrink-0">
+                            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-geo-400 to-ocean-500 flex items-center justify-center shadow-lg shadow-geo-500/20">
+                                <i class="fas fa-globe-americas text-white text-sm"></i>
+                            </div>
+                            <div class="absolute -top-1 -right-1 w-2 h-2 bg-geo-400 rounded-full glow-ring"></div>
+                        </div>
+                        <span class="font-display font-bold text-lg tracking-tight">
+                            <span class="text-white">SEU</span><span class="gradient-text">NOME</span>
+                        </span>
+                        <span class="hidden sm:inline-block text-[10px] text-slate-500 font-mono bg-slate-800/50 px-2 py-0.5 rounded border border-slate-700/50">GIS</span>
+                    </div>
+
+                    <div class="hidden md:flex items-center gap-6 lg:gap-8">
+                        <a href="#sobre" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Sobre</a>
+                        <a href="#skills" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Skills</a>
+                        <a href="#projetos" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Projetos</a>
+                        <a href="#roadmap" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Roadmap</a>
+                        <a href="#contato" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Contato</a>
+                        <a href="https://github.com/SEU_USUARIO_GITHUB" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-geo-600/15 border border-geo-500/20 text-geo-400 text-sm font-medium hover:bg-geo-600/25 hover:border-geo-500/35 transition-all">
+                            <i class="fab fa-github text-sm"></i>GitHub
+                        </a>
+                    </div>
+
+                    <button class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg hover:bg-slate-800/50 transition-colors" onclick="toggleMobileMenu()" aria-label="Alternar menu" aria-expanded="false" id="menu-btn">
+                        <i class="fas fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-geo-900/20" role="menu">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#sobre" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Sobre</a>
+                <a href="#skills" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Skills</a>
+                <a href="#projetos" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Projetos</a>
+                <a href="#roadmap" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Roadmap</a>
+                <a href="#contato" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Contato</a>
+                <a href="https://github.com/SEU_USUARIO_GITHUB" target="_blank" rel="noopener" class="block px-3 py-2.5 rounded-lg text-geo-400 hover:bg-geo-900/30 transition-colors" role="menuitem">
+                    <i class="fab fa-github mr-2"></i>GitHub
+                </a>
+            </div>
+        </div>
     </nav>
 
-    <!-- CABEÇALHO -->
-    <header>
-        <h1>Bem-vindo ao Meu Portfólio</h1>
-        <p>Conheça minhas habilidades e certificações na área de Tecnologia e Segurança da Informação.</p>
-    </header>
+    <!-- ========== HERO ========== -->
+    <section class="relative min-h-screen flex items-center justify-center pt-14 overflow-hidden" id="hero">
+        <!-- Background -->
+        <svg class="contour-field contour-drift" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path d="M -50,650 C 150,600 250,700 450,650 C 650,600 750,680 950,630 C 1050,610 1150,650 1250,620" stroke="#4ade80" stroke-opacity="0.4"/>
+            <path d="M -50,590 C 150,530 260,640 460,580 C 660,520 760,610 960,560 C 1070,535 1160,580 1250,550" stroke="#4ade80" stroke-opacity="0.35"/>
+            <path d="M -50,530 C 160,460 270,570 470,500 C 670,430 770,530 970,480 C 1080,450 1170,500 1250,470" stroke="#38bdf8" stroke-opacity="0.35"/>
+            <path d="M -50,470 C 170,390 280,500 480,420 C 680,340 780,440 980,380 C 1090,345 1180,400 1250,370" stroke="#38bdf8" stroke-opacity="0.3"/>
+            <path d="M -50,410 C 180,320 290,430 490,340 C 690,250 790,350 990,280 C 1100,240 1190,290 1250,260" stroke="#f59e0b" stroke-opacity="0.2"/>
+            <path d="M -50,350 C 190,260 300,350 500,260 C 700,170 800,250 1000,180 C 1110,140 1200,180 1250,160" stroke="#4ade80" stroke-opacity="0.15"/>
+        </svg>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div class="content">
-        <!-- Seção de Habilidades -->
-        <section class="habilidades">
-            <h3>Habilidades</h3>
-            <ul>
-                <li><strong>Programação:</strong> Python, Django, JavaScript, HTML, CSS</li>
-                <li><strong>Banco de Dados:</strong> PostgreSQL, MySQL, SQLite</li>
-                <li><strong>Ferramentas de Cibersegurança:</strong> Kali Linux, Wireshark, Nmap, Burp Suite</li>
-                <li><strong>Outras Tecnologias:</strong> Linux, Docker, Git, GitHub</li>
-            </ul>
-        </section>
+        <!-- Coordinates -->
+        <div class="absolute top-20 left-4 lg:left-8 hidden lg:flex flex-col gap-0.5 font-mono text-[10px] text-geo-400/50 coord-tick" aria-hidden="true">
+            <span id="coord-lat">LAT -23.5505°</span>
+            <span id="coord-lng">LNG -46.6333°</span>
+            <span class="text-slate-600 text-[8px]">EPSG:4326</span>
+        </div>
 
-        <!-- Seção de Pentest e Segurança -->
-        <section class="pentest">
-
-            
-            <h2>Projetos Realizados</h2>
-            <a href="https://github.com/cursoctl/sniffer.py.git" target="_blank">Projeto 1 - Sniffer de Pacotes</a>
-            <a href="https://github.com/cursoctl/scanner.py" target="_blank">Projeto 2 - scanner</a>
-            <h3>Pentest e Segurança</h3>
-            <ul>
-                <li><strong>Análise de Vulnerabilidades:</strong> Identificação de falhas usando ferramentas como Nmap e Nessus.</li>
-                <li><strong>Testes Práticos:</strong> Realização de simulações de ataques para avaliar a segurança de sistemas.</li>
-                <li><strong>Relatórios:</strong> Documentação detalhada das vulnerabilidades encontradas e recomendações de correção.</li>
-            </ul>
-        </section>
-
-        <!-- Seção "Sobre Mim" -->
-        <section class="sobre">
-            <h3>Sobre Mim</h3>
-            <p>Sou Marcos, um desenvolvedor apaixonado por segurança da informação e programação. Com experiência em Python, Django e ferramentas de pentest, estou sempre em busca de desafios e novas soluções.</p>
-            <p>Além de desenvolver sistemas, tenho grande interesse em melhorar a segurança de aplicações e redes, utilizando ferramentas como Kali Linux, Nmap e Wireshark.</p>
-        </section>
-
-        <!-- Certificações -->
-        <section class="certificacoes">
-            <h3>Minhas Certificações</h3>
-            <div class="certificado-container">
-                <div class="certificado-card">
-                    <h3>Google Cybersecurity</h3>
-                    <p><strong>Instituição:</strong> Coursera</p>
-                    <a href="https://www.coursera.org/account/accomplishments/specialization/MSJGK8S5ABP0" target="_blank" class="btn-certificado">Ver Certificado</a>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 py-12">
+            <div class="reveal active">
+                <!-- Status -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-geo-900/30 border border-geo-500/15 text-geo-400 text-sm font-mono mb-6">
+                    <span class="w-1.5 h-1.5 rounded-full bg-geo-400 animate-pulse"></span>
+                    <span id="status-text">SEU_STATUS_ATUAL</span>
                 </div>
-                <div class="certificado-card">
-                    <h3>Certified Ethical Hacker </h3>
-                    <p><strong>Instituição:</strong> cisco</p>
-                    <a href="https://www.netacad.com/" target="_blank" class="btn-certificado">Ver Certificado</a>
-                   
+
+                <!-- Title -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-5 leading-[1.1]">
+                    Transformando dados<br>
+                    <span class="gradient-text">espaciais em decisões</span>
+                </h1>
+
+                <!-- Description -->
+                <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-400 mb-8 leading-relaxed">
+                    SEU_MINI_BIO_AQUI. Especializando em <span class="text-geo-400 font-medium">Python</span>,
+                    <span class="text-ocean-400 font-medium">SQL/PostGIS</span>,
+                    <span class="text-geo-400 font-medium">Power BI</span> e
+                    <span class="text-ocean-400 font-medium">análise espacial avançada</span>.
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
+                    <a href="#projetos" class="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-geo-600 to-geo-500 text-white font-semibold hover:from-geo-500 hover:to-geo-400 transition-all shadow-lg shadow-geo-500/20 hover:shadow-geo-500/35 transform hover:-translate-y-0.5">
+                        <i class="fas fa-rocket group-hover:translate-x-0.5 transition-transform"></i>Ver Projetos
+                    </a>
+                    <a href="https://linkedin.com/in/SEU_LINKEDIN" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-300 font-semibold hover:bg-slate-800 hover:border-geo-500/25 hover:text-white transition-all">
+                        <i class="fab fa-linkedin text-ocean-400"></i>LinkedIn
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-2xl lg:text-3xl font-display font-bold text-white stat-number" data-count="6">0</div>
+                        <div class="text-xs text-slate-500 mt-1 font-medium tracking-wide">Projetos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl lg:text-3xl font-display font-bold text-white stat-number" data-count="7">0</div>
+                        <div class="text-xs text-slate-500 mt-1 font-medium tracking-wide">Ferramentas</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl lg:text-3xl font-display font-bold text-white stat-number" data-count="100">0</div>
+                        <div class="text-xs text-slate-500 mt-1 font-medium tracking-wide">Dados Abertos</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl lg:text-3xl font-display font-bold text-white stat-number" data-count="2027">0</div>
+                        <div class="text-xs text-slate-500 mt-1 font-medium tracking-wide">Formatura</div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
 
-     
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 scroll-indicator hidden md:block">
+            <a href="#sobre" class="text-slate-600 hover:text-geo-400 transition-colors" aria-label="Rolar para a seção Sobre">
+                <i class="fas fa-chevron-down text-xl"></i>
+            </a>
+        </div>
+    </section>
 
-    <!-- RODAPÉ -->
-    <footer>
-        <p>© 2025 Marcos | <a href="mailto:marcosdejair497@gmail.com">Entre em contato</a></p>
+    <!-- ========== ABOUT ========== -->
+    <section id="sobre" class="py-16 lg:py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="reveal">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                        <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Sobre Mim</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-5 leading-tight">
+                        Entre o <span class="gradient-text">território</span><br>
+                        e o <span class="gradient-text">código</span>
+                    </h2>
+                    <div class="space-y-4 text-slate-400 text-base leading-relaxed">
+                        <p>
+                            Estudante de Geoprocessamento com foco em transformar dados geoespaciais em insights acionáveis. 
+                            Acredito que a combinação de <strong class="text-geo-400 font-medium">análise espacial</strong>,
+                            <strong class="text-ocean-400 font-medium">programação</strong> e
+                            <strong class="text-geo-400 font-medium">visualização de dados</strong>
+                            é o futuro da tomada de decisão territorial.
+                        </p>
+                        <p>
+                            Atualmente aprofundando conhecimentos em Python para automação de workflows GIS,
+                            SQL/PostGIS para gestão de dados espaciais, e Power BI para dashboards executivos.
+                            Todos os projetos utilizam dados abertos brasileiros.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-geo-900/25 border border-geo-500/15 text-geo-400 text-sm font-medium">
+                            <i class="fas fa-map-marked-alt text-xs"></i>QGIS
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-ocean-900/25 border border-ocean-500/15 text-ocean-400 text-sm font-medium">
+                            <i class="fab fa-python text-xs"></i>Python
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-geo-900/25 border border-geo-500/15 text-geo-400 text-sm font-medium">
+                            <i class="fas fa-database text-xs"></i>SQL / PostGIS
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-ocean-900/25 border border-ocean-500/15 text-ocean-400 text-sm font-medium">
+                            <i class="fas fa-chart-bar text-xs"></i>Power BI
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-geo-900/25 border border-geo-500/15 text-geo-400 text-sm font-medium">
+                            <i class="fas fa-satellite text-xs"></i>Sensoriamento
+                        </span>
+                    </div>
+                </div>
+
+                <div class="reveal reveal-delay-1 relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-geo-500/10 to-ocean-500/10 rounded-2xl blur-2xl"></div>
+                    <div class="relative glass-card rounded-2xl p-6 border border-geo-500/8">
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-800/30 hover:bg-slate-800/50 transition-colors">
+                                <div class="w-10 h-10 rounded-xl bg-geo-500/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-graduation-cap text-geo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">Formação Acadêmica</h4>
+                                    <p class="text-slate-400 text-sm">Tecnologia em Geoprocessamento</p>
+                                    <span class="text-geo-400 text-xs font-mono">Previsão: 2027</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-800/30 hover:bg-slate-800/50 transition-colors">
+                                <div class="w-10 h-10 rounded-xl bg-ocean-500/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-bullseye text-ocean-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">Foco Atual</h4>
+                                    <p class="text-slate-400 text-sm">GeoAI · Automação de Workflows</p>
+                                    <span class="text-ocean-400 text-xs font-mono">Análise Espacial Avançada</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-800/30 hover:bg-slate-800/50 transition-colors">
+                                <div class="w-10 h-10 rounded-xl bg-geo-500/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map text-geo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">Áreas de Interesse</h4>
+                                    <p class="text-slate-400 text-sm">Planejamento Urbano · Meio Ambiente</p>
+                                    <span class="text-geo-400 text-xs font-mono">Smart Cities · Utilities</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section id="skills" class="py-16 lg:py-24 relative bg-slate-900/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Stack Técnico</span>
+                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3">Ferramentas & Habilidades</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Competências em constante evolução, aplicadas em projetos reais com dados abertos.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Skill 1 -->
+                <div class="reveal glass-card rounded-2xl p-5 hover:border-geo-500/20 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-geo-500/10 flex items-center justify-center group-hover:bg-geo-500/20 transition-colors">
+                                <i class="fas fa-globe-americas text-geo-400"></i>
+                            </div>
+                            <span class="text-white font-semibold text-sm">QGIS</span>
+                        </div>
+                        <span class="text-geo-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-geo-500/10">Intermediário</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-geo-600 to-geo-400 h-1 rounded-full" style="width:0%" data-width="72%"></div>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Análise espacial, Model Builder, processamento de raster, simbologia avançada.</p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="reveal reveal-delay-1 glass-card rounded-2xl p-5 hover:border-ocean-500/20 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-ocean-500/10 flex items-center justify-center group-hover:bg-ocean-500/20 transition-colors">
+                                <i class="fab fa-python text-ocean-400"></i>
+                            </div>
+                            <span class="text-white font-semibold text-sm">Python</span>
+                        </div>
+                        <span class="text-ocean-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-ocean-500/10">Avançando</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-ocean-600 to-ocean-400 h-1 rounded-full" style="width:0%" data-width="65%"></div>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">GeoPandas, Rasterio, Folium, Pandas, Matplotlib, APIs, automação.</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="reveal reveal-delay-2 glass-card rounded-2xl p-5 hover:border-geo-500/20 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-geo-500/10 flex items-center justify-center group-hover:bg-geo-500/20 transition-colors">
+                                <i class="fas fa-database text-geo-400"></i>
+                            </div>
+                            <span class="text-white font-semibold text-sm">SQL / PostGIS</span>
+                        </div>
+                        <span class="text-geo-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-geo-500/10">Intermediário</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-geo-600 to-geo-400 h-1 rounded-full" style="width:0%" data-width="60%"></div>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Consultas espaciais, ST_Within, ST_Buffer, joins geográficos, modelagem.</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="reveal glass-card rounded-2xl p-5 hover:border-ocean-500/20 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-ocean-500/10 flex items-center justify-center group-hover:bg-ocean-500/20 transition-colors">
+                                <i class="fas fa-chart-bar text-ocean-400"></i>
+                            </div>
+                            <span class="text-white font-semibold text-sm">Power BI</span>
+                        </div>
+                        <span class="text-ocean-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-ocean-500/10">Avançando</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-ocean-600 to-ocean-400 h-1 rounded-full" style="width:0%" data-width="55%"></div>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Dashboards executivos, DAX, Power Query, mapas coropléticos, integração SQL.</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="reveal reveal-delay-1 glass-card rounded-2xl p-5 hover:border-geo-500/20 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-geo-500/10 flex items-center justify-center group-hover:bg-geo-500/20 transition-colors">
+                                <i class="fas fa-satellite text-geo-400"></i>
+                            </div>
+                            <span class="text-white font-semibold text-sm">Sensoriamento Remoto</span>
+                        </div>
+                        <span class="text-geo-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-geo-500/10">Intermediário</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-geo-600 to-geo-400 h-1 rounded-full" style="width:0%" data-width="62%"></div>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Imagens Sentinel-2/Landsat, classificação, índices espectrais (NDVI, NDWI).</p>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="reveal reveal-delay-2 glass-card rounded-2xl p-5 hover:border-ocean-500/20 transition-all group">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-ocean-500/10 flex items-center justify-center group-hover:bg-ocean-500/20 transition-colors">
+                                <i class="fas fa-file-excel text-ocean-400"></i>
+                            </div>
+                            <span class="text-white font-semibold text-sm">Excel Avançado</span>
+                        </div>
+                        <span class="text-ocean-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-ocean-500/10">Intermediário</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
+                        <div class="skill-bar bg-gradient-to-r from-ocean-600 to-ocean-400 h-1 rounded-full" style="width:0%" data-width="70%"></div>
+                    </div>
+                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Power Query, Tabelas Dinâmicas, PROCV/X, Macros básicas, Dashboards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projetos" class="py-16 lg:py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Portfólio</span>
+                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3">Projetos em Destaque</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Análises espaciais construídas com dados abertos de fontes oficiais brasileiras.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Project 1 - Completed -->
+                <div class="reveal project-card glass-card rounded-2xl overflow-hidden border border-slate-800/50">
+                    <div class="h-36 bg-gradient-to-br from-geo-900/50 to-geo-700/15 flex items-center justify-center border-b border-geo-500/8 relative">
+                        <i class="fas fa-city text-4xl text-geo-400/40"></i>
+                        <div class="absolute top-3 right-3 status-badge text-[10px]">
+                            <span class="w-1.5 h-1.5 rounded-full bg-geo-400 inline-block"></span>
+                            Concluído
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap items-center gap-1 mb-2.5 font-mono text-[9px] text-geo-400/70">
+                            <span class="px-2 py-0.5 rounded bg-geo-900/25">GeoPandas</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-geo-900/25">IBGE</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-geo-900/25">OSM</span>
+                        </div>
+                        <h4 class="text-white font-semibold text-base mb-1.5">Análise de Equidade Espacial</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Acessibilidade a equipamentos públicos por setor censitário. Correlação entre renda e infraestrutura.</p>
+                        <div class="flex flex-wrap gap-1 mb-3.5">
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Python</span>
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">GeoPandas</span>
+                        </div>
+                        <a href="https://github.com/SEU_USUARIO_GITHUB/PROJETO_1" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-geo-400 hover:text-geo-300 text-sm font-medium transition-colors group">
+                            Ver no GitHub <i class="fas fa-arrow-right text-xs group-hover:translate-x-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 - In Progress -->
+                <div class="reveal reveal-delay-1 project-card glass-card rounded-2xl overflow-hidden border border-slate-800/50">
+                    <div class="h-36 bg-gradient-to-br from-ocean-900/50 to-ocean-700/15 flex items-center justify-center border-b border-ocean-500/8 relative">
+                        <i class="fas fa-cogs text-4xl text-ocean-400/40"></i>
+                        <div class="absolute top-3 right-3 status-badge text-[10px] border-amber-500/20 text-amber-400 bg-amber-500/10">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block animate-pulse"></span>
+                            Em andamento
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap items-center gap-1 mb-2.5 font-mono text-[9px] text-ocean-400/70">
+                            <span class="px-2 py-0.5 rounded bg-ocean-900/25">Python</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-ocean-900/25">PostGIS</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-ocean-900/25">GitHub Actions</span>
+                        </div>
+                        <h4 class="text-white font-semibold text-base mb-1.5">Pipeline Automatizado de Dados</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Download e processamento de dados meteorológicos via API, armazenamento em PostGIS com automação.</p>
+                        <div class="flex flex-wrap gap-1 mb-3.5">
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Automação</span>
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">SQL</span>
+                        </div>
+                        <a href="https://github.com/SEU_USUARIO_GITHUB/PROJETO_2" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-ocean-400 hover:text-ocean-300 text-sm font-medium transition-colors group">
+                            Ver no GitHub <i class="fas fa-arrow-right text-xs group-hover:translate-x-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Completed -->
+                <div class="reveal reveal-delay-2 project-card glass-card rounded-2xl overflow-hidden border border-slate-800/50">
+                    <div class="h-36 bg-gradient-to-br from-geo-900/50 to-geo-700/15 flex items-center justify-center border-b border-geo-500/8 relative">
+                        <i class="fas fa-chart-line text-4xl text-geo-400/40"></i>
+                        <div class="absolute top-3 right-3 status-badge text-[10px]">
+                            <span class="w-1.5 h-1.5 rounded-full bg-geo-400 inline-block"></span>
+                            Concluído
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap items-center gap-1 mb-2.5 font-mono text-[9px] text-geo-400/70">
+                            <span class="px-2 py-0.5 rounded bg-geo-900/25">Power BI</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-geo-900/25">DAX</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-geo-900/25">MapBiomas</span>
+                        </div>
+                        <h4 class="text-white font-semibold text-base mb-1.5">Dashboard Territorial</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Painel executivo com KPIs espaciais: densidade, desmatamento, IDH e saneamento com drill-down.</p>
+                        <div class="flex flex-wrap gap-1 mb-3.5">
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">DAX</span>
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">ETL</span>
+                        </div>
+                        <a href="https://github.com/SEU_USUARIO_GITHUB/PROJETO_3" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-geo-400 hover:text-geo-300 text-sm font-medium transition-colors group">
+                            Ver no GitHub <i class="fas fa-arrow-right text-xs group-hover:translate-x-0.5 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 - Future -->
+                <div class="reveal project-card glass-card rounded-2xl overflow-hidden border border-slate-800/50 opacity-70 hover:opacity-100 transition-opacity">
+                    <div class="h-36 bg-gradient-to-br from-ocean-900/50 to-ocean-700/15 flex items-center justify-center border-b border-ocean-500/8 relative">
+                        <i class="fas fa-brain text-4xl text-ocean-400/30"></i>
+                        <div class="absolute top-3 right-3 status-badge status-badge-future text-[10px]">
+                            <i class="fas fa-clock text-[9px]"></i>Em breve
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap items-center gap-1 mb-2.5 font-mono text-[9px] text-ocean-400/50">
+                            <span class="px-2 py-0.5 rounded bg-ocean-900/15">scikit-learn</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-ocean-900/15">Sentinel-2</span>
+                        </div>
+                        <h4 class="text-white font-semibold text-base mb-1.5">Classificação de Uso do Solo</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Random Forest para classificação de pixels Sentinel-2 em classes de uso do solo.</p>
+                        <div class="flex flex-wrap gap-1 mb-3.5">
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">ML</span>
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">GeoAI</span>
+                        </div>
+                        <span class="text-slate-500 text-xs inline-flex items-center gap-1.5">
+                            <i class="fas fa-code text-[10px]"></i> Em desenvolvimento
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Future -->
+                <div class="reveal reveal-delay-1 project-card glass-card rounded-2xl overflow-hidden border border-slate-800/50 opacity-70 hover:opacity-100 transition-opacity">
+                    <div class="h-36 bg-gradient-to-br from-geo-900/50 to-geo-700/15 flex items-center justify-center border-b border-geo-500/8 relative">
+                        <i class="fas fa-tree text-4xl text-geo-400/30"></i>
+                        <div class="absolute top-3 right-3 status-badge status-badge-future text-[10px]">
+                            <i class="fas fa-clock text-[9px]"></i>Em breve
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap items-center gap-1 mb-2.5 font-mono text-[9px] text-geo-400/50">
+                            <span class="px-2 py-0.5 rounded bg-geo-900/15">DETER</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-geo-900/15">CAR</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-geo-900/15">Streamlit</span>
+                        </div>
+                        <h4 class="text-white font-semibold text-base mb-1.5">Monitoramento de Desmatamento</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Cruzamento de alertas DETER/INPE com limites do CAR. Relatórios automáticos.</p>
+                        <div class="flex flex-wrap gap-1 mb-3.5">
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">INPE</span>
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Python</span>
+                        </div>
+                        <span class="text-slate-500 text-xs inline-flex items-center gap-1.5">
+                            <i class="fas fa-code text-[10px]"></i> Em desenvolvimento
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Future -->
+                <div class="reveal reveal-delay-2 project-card glass-card rounded-2xl overflow-hidden border border-slate-800/50 opacity-70 hover:opacity-100 transition-opacity">
+                    <div class="h-36 bg-gradient-to-br from-ocean-900/50 to-ocean-700/15 flex items-center justify-center border-b border-ocean-500/8 relative">
+                        <i class="fas fa-cube text-4xl text-ocean-400/30"></i>
+                        <div class="absolute top-3 right-3 status-badge status-badge-future text-[10px]">
+                            <i class="fas fa-clock text-[9px]"></i>Em breve
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex flex-wrap items-center gap-1 mb-2.5 font-mono text-[9px] text-ocean-400/50">
+                            <span class="px-2 py-0.5 rounded bg-ocean-900/15">QGIS 3D</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-ocean-900/15">SRTM</span>
+                            <span class="text-slate-600">·</span>
+                            <span class="px-2 py-0.5 rounded bg-ocean-900/15">OSM</span>
+                        </div>
+                        <h4 class="text-white font-semibold text-base mb-1.5">Digital Twin Simplificado</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Modelo 3D com dados SRTM e OSM. Análise de sombreamento e cenários urbanos.</p>
+                        <div class="flex flex-wrap gap-1 mb-3.5">
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">3D</span>
+                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Simulação</span>
+                        </div>
+                        <span class="text-slate-500 text-xs inline-flex items-center gap-1.5">
+                            <i class="fas fa-code text-[10px]"></i> Em desenvolvimento
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10 reveal">
+                <a href="https://github.com/SEU_USUARIO_GITHUB?tab=repositories" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-300 hover:bg-slate-800 hover:border-geo-500/25 hover:text-white transition-all font-medium text-sm">
+                    <i class="fab fa-github"></i>Ver todos os repositórios
+                    <i class="fas fa-arrow-right text-xs opacity-50"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ROADMAP ========== -->
+    <section id="roadmap" class="py-16 lg:py-24 relative bg-slate-900/20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Trajetória</span>
+                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3">Roadmap até a Formatura</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Plano de execução dos projetos e evolução das skills até a formatura em 2027.</p>
+            </div>
+
+            <div class="relative">
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-geo-500/30 via-ocean-500/30 to-geo-500/10 md:-translate-x-px"></div>
+                
+                <div class="space-y-8">
+                    <!-- Item 1 -->
+                    <div class="reveal relative flex items-start md:items-center gap-4 md:gap-0">
+                        <div class="hidden md:block w-1/2 pr-12 text-right">
+                            <h4 class="text-white font-semibold text-base">Fase 1 — Fundação</h4>
+                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Ago/2026 → Out/2026</p>
+                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Python GIS, SQL/PostGIS, QGIS avançado, Power BI e Excel. Base técnica sólida.</p>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-geo-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
+                        <div class="pl-11 md:pl-12 md:w-1/2">
+                            <div class="md:hidden mb-1.5">
+                                <h4 class="text-white font-semibold text-base">Fase 1 — Fundação</h4>
+                                <p class="text-ocean-400 text-xs font-mono">Ago/2026 → Out/2026</p>
+                            </div>
+                            <div class="glass-card rounded-xl p-3.5 border border-geo-500/8">
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">GeoPandas</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">PostGIS</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">Power BI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="reveal reveal-delay-1 relative flex items-start md:items-center gap-4 md:gap-0">
+                        <div class="pl-11 md:pl-0 md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
+                            <div class="md:hidden mb-1.5">
+                                <h4 class="text-white font-semibold text-base">Projeto 1 — Equidade Espacial</h4>
+                                <p class="text-ocean-400 text-xs font-mono">Nov/2026</p>
+                            </div>
+                            <div class="glass-card rounded-xl p-3.5 border border-ocean-500/8">
+                                <div class="flex flex-wrap gap-1.5 justify-end">
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">IBGE</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">OSM</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-ocean-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
+                        <div class="hidden md:block md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <h4 class="text-white font-semibold text-base">Projeto 1 — Equidade Espacial</h4>
+                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Nov/2026</p>
+                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Análise de acesso a equipamentos públicos por renda. Correlação espacial.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="reveal reveal-delay-2 relative flex items-start md:items-center gap-4 md:gap-0">
+                        <div class="hidden md:block w-1/2 pr-12 text-right">
+                            <h4 class="text-white font-semibold text-base">Projeto 2 — Pipeline Automatizado</h4>
+                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Dez/2026</p>
+                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Automação de download e processamento de dados meteorológicos via API.</p>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-geo-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
+                        <div class="pl-11 md:pl-12 md:w-1/2">
+                            <div class="md:hidden mb-1.5">
+                                <h4 class="text-white font-semibold text-base">Projeto 2 — Pipeline Automatizado</h4>
+                                <p class="text-ocean-400 text-xs font-mono">Dez/2026</p>
+                            </div>
+                            <div class="glass-card rounded-xl p-3.5 border border-geo-500/8">
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">GitHub Actions</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">API</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="reveal reveal-delay-3 relative flex items-start md:items-center gap-4 md:gap-0">
+                        <div class="pl-11 md:pl-0 md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
+                            <div class="md:hidden mb-1.5">
+                                <h4 class="text-white font-semibold text-base">Projeto 3 — Dashboard Power BI</h4>
+                                <p class="text-ocean-400 text-xs font-mono">Jan/2027</p>
+                            </div>
+                            <div class="glass-card rounded-xl p-3.5 border border-ocean-500/8">
+                                <div class="flex flex-wrap gap-1.5 justify-end">
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">DAX</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">MapBiomas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-ocean-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
+                        <div class="hidden md:block md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <h4 class="text-white font-semibold text-base">Projeto 3 — Dashboard Power BI</h4>
+                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Jan/2027</p>
+                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Painel executivo com KPIs territoriais: desmatamento, IDH, densidade.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="reveal relative flex items-start md:items-center gap-4 md:gap-0">
+                        <div class="hidden md:block w-1/2 pr-12 text-right">
+                            <h4 class="text-white font-semibold text-base">Projeto 4 — ML + Sensoriamento</h4>
+                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Fev/2027</p>
+                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Classificação automática de uso do solo com Random Forest + Sentinel-2.</p>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-geo-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
+                        <div class="pl-11 md:pl-12 md:w-1/2">
+                            <div class="md:hidden mb-1.5">
+                                <h4 class="text-white font-semibold text-base">Projeto 4 — ML + Sensoriamento</h4>
+                                <p class="text-ocean-400 text-xs font-mono">Fev/2027</p>
+                            </div>
+                            <div class="glass-card rounded-xl p-3.5 border border-geo-500/8">
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">scikit-learn</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">Rasterio</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">GeoAI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="reveal reveal-delay-1 relative flex items-start md:items-center gap-4 md:gap-0">
+                        <div class="pl-11 md:pl-0 md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
+                            <div class="md:hidden mb-1.5">
+                                <h4 class="text-white font-semibold text-base">Projeto 5 — Monitoramento</h4>
+                                <p class="text-ocean-400 text-xs font-mono">Mar/2027</p>
+                            </div>
+                            <div class="glass-card rounded-xl p-3.5 border border-ocean-500/8">
+                                <div class="flex flex-wrap gap-1.5 justify-end">
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">Streamlit</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">DETER</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">CAR</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-ocean-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
+                        <div class="hidden md:block md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <h4 class="text-white font-semibold text-base">Projeto 5 — Monitoramento</h4>
+                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Mar/2027</p>
+                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Cruzamento de alertas DETER com CAR. Web app em Streamlit.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="reveal reveal-delay-2 relative flex items-start md:items-center gap-4 md:gap-0">
+                        <div class="hidden md:block w-1/2 pr-12 text-right">
+                            <h4 class="text-white font-semibold text-base">Projeto 6 — Digital Twin 3D</h4>
+                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Abr/2027</p>
+                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Modelo 3D com análise de sombreamento e simulação de cenários urbanos.</p>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-geo-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
+                        <div class="pl-11 md:pl-12 md:w-1/2">
+                            <div class="md:hidden mb-1.5">
+                                <h4 class="text-white font-semibold text-base">Projeto 6 — Digital Twin 3D</h4>
+                                <p class="text-ocean-400 text-xs font-mono">Abr/2027</p>
+                            </div>
+                            <div class="glass-card rounded-xl p-3.5 border border-geo-500/8">
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">QGIS 3D</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">SRTM</span>
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">OSM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 - Graduation -->
+                    <div class="reveal reveal-delay-3 relative flex items-start md:items-center gap-4 md:gap-0">
+                        <div class="pl-11 md:pl-0 md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
+                            <div class="md:hidden mb-1.5">
+                                <h4 class="text-white font-semibold text-base">🎓 Formatura</h4>
+                                <p class="text-ocean-400 text-xs font-mono">Meio de 2027</p>
+                            </div>
+                            <div class="glass-card rounded-xl p-3.5 border border-ocean-500/8 bg-ocean-500/5">
+                                <p class="text-ocean-400 text-xs font-medium">🎯 Portfólio completo · GitHub ativo · LinkedIn posicionado</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-geo-400 to-ocean-400 border-3 border-slate-950 md:-translate-x-2 z-10"></div>
+                        <div class="hidden md:block md:w-1/2 md:pl-12 order-1 md:order-2">
+                            <h4 class="text-white font-semibold text-base">🎓 Formatura & Disponibilidade</h4>
+                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Meio de 2027</p>
+                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Portfólio completo, GitHub ativo e perfil do LinkedIn posicionado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contato" class="py-16 lg:py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Contato</span>
+                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
+                    Vamos <span class="gradient-text">mapear</span> algo juntos?
+                </h2>
+                <p class="text-slate-400 max-w-xl mx-auto text-base leading-relaxed mb-8">
+                    Aberto a estágios, projetos freelance e oportunidades em análise espacial, 
+                    GeoAI e visualização de dados territoriais.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10">
+                    <a href="mailto:SEU_EMAIL_PROFISSIONAL" class="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-geo-600 to-geo-500 text-white font-semibold hover:from-geo-500 hover:to-geo-400 transition-all shadow-lg shadow-geo-500/20 hover:shadow-geo-500/35 transform hover:-translate-y-0.5 w-full sm:w-auto">
+                        <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>Enviar E-mail
+                    </a>
+                    <a href="https://linkedin.com/in/SEU_LINKEDIN" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-300 font-semibold hover:bg-slate-800 hover:border-geo-500/25 hover:text-white transition-all w-full sm:w-auto">
+                        <i class="fab fa-linkedin text-ocean-400"></i>LinkedIn
+                    </a>
+                </div>
+                <div class="flex items-center justify-center gap-3.5">
+                    <a href="https://github.com/SEU_USUARIO_GITHUB" target="_blank" rel="noopener" aria-label="GitHub" class="w-11 h-11 rounded-full glass-card border border-slate-700 flex items-center justify-center text-slate-400 hover:text-geo-400 hover:border-geo-500/25 transition-all group">
+                        <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/SEU_LINKEDIN" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-11 h-11 rounded-full glass-card border border-slate-700 flex items-center justify-center text-slate-400 hover:text-ocean-400 hover:border-ocean-500/25 transition-all group">
+                        <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
+                    </a>
+                    <a href="mailto:SEU_EMAIL_PROFISSIONAL" aria-label="E-mail" class="w-11 h-11 rounded-full glass-card border border-slate-700 flex items-center justify-center text-slate-400 hover:text-geo-400 hover:border-geo-500/25 transition-all group">
+                        <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="border-t border-slate-800/30 py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <span class="text-slate-500 text-xs font-mono">© 2026 SEU_NOME_COMPLETO. Dados abertos, decisões abertas.</span>
+            <span class="text-slate-600 text-[10px] font-mono flex items-center gap-2">
+                <span>IBGE</span>
+                <span class="w-0.5 h-0.5 rounded-full bg-slate-600"></span>
+                <span>INCRA</span>
+                <span class="w-0.5 h-0.5 rounded-full bg-slate-600"></span>
+                <span>INPE</span>
+                <span class="w-0.5 h-0.5 rounded-full bg-slate-600"></span>
+                <span>MapBiomas</span>
+            </span>
+        </div>
     </footer>
 
-    <script src="assets/script.js"></script>
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+        // Mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('menu-btn');
+            const icon = document.getElementById('menu-icon');
+            const isHidden = menu.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', String(!isHidden));
+            icon.classList.toggle('fa-bars', isHidden);
+            icon.classList.toggle('fa-xmark', !isHidden);
+        }
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('menu-btn').setAttribute('aria-expanded', 'false');
+                document.getElementById('menu-icon').classList.add('fa-bars');
+                document.getElementById('menu-icon').classList.remove('fa-xmark');
+            });
+        });
+
+        // ESC key closes mobile menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const menu = document.getElementById('mobile-menu');
+                if (!menu.classList.contains('hidden')) toggleMobileMenu();
+            }
+        });
+
+        // Navbar shadow
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('shadow-lg', window.scrollY > 20);
+            navbar.classList.toggle('shadow-black/30', window.scrollY > 20);
+        });
+
+        // Reveal animations
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('active'), index * 40);
+                    
+                    const bars = entry.target.querySelectorAll('.skill-bar');
+                    bars.forEach(bar => {
+                        if (bar.dataset.width) {
+                            setTimeout(() => { bar.style.width = bar.dataset.width; }, 300);
+                        }
+                    });
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Animate stat numbers
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count);
+                    if (target <= 100) {
+                        let current = 0;
+                        const increment = Math.max(1, Math.ceil(target / 25));
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) { current = target; clearInterval(timer); }
+                            el.textContent = current;
+                        }, 25);
+                    } else {
+                        el.textContent = target;
+                    }
+                    statObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNumbers.forEach(el => statObserver.observe(el));
+
+        // Dynamic coordinates
+        const latEl = document.getElementById('coord-lat');
+        const lngEl = document.getElementById('coord-lng');
+        if (latEl && lngEl) {
+            let t = 0;
+            setInterval(() => {
+                t += 0.015;
+                const lat = -23.5505 + Math.sin(t) * 0.002;
+                const lng = -46.6333 + Math.cos(t * 0.8) * 0.002;
+                latEl.textContent = `LAT ${lat.toFixed(4)}°`;
+                lngEl.textContent = `LNG ${lng.toFixed(4)}°`;
+            }, 500);
+        }
+
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                if (window.scrollY >= section.offsetTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+            });
+        });
+
+        console.log('%c🌍 SEU_NOME · Analista GIS', 'font-size: 18px; font-weight: bold; color: #4ade80;');
+        console.log('%cDados abertos transformando decisões territoriais.', 'font-size: 13px; color: #94a3b8;');
+    </script>
 </body>
 </html>
