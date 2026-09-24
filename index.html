@@ -2,510 +2,1620 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="robots" content="index, follow" />
-    <meta name="description" content="Analista GIS especializado em Geoprocessamento, Geodésia, Python, PostGIS e Power BI. Foco em soluções para o Agronegócio, Meio Ambiente e Planejamento Urbano." />
-    <meta name="keywords" content="GIS, Geoprocessamento, Agro, Agronegócio, Python, PostGIS, Power BI, QGIS, Análise Espacial, Geodésia, GNSS, SQL, MapBiomas, LabSG, UFPel" />
+    <meta name="description" content="Analista GIS especializado em Geoprocessamento, Geodésia, Python, PostGIS. Foco em soluções para o Agronegócio, Meio Ambiente e Planejamento Urbano." />
+    <meta name="keywords" content="GIS, Geoprocessamento, Agro, Agronegócio, Python, PostGIS, QGIS, Análise Espacial, Geodésia, GNSS, SQL, MapBiomas" />
     <meta name="author" content="Marcos Dejair Oliveira Leal" />
-    <meta property="og:title" content="Marcos Leal - Analista GIS | Geodésia & Geoprocessamento" />
+    <meta property="og:title" content="Marcos Leal — Analista GIS" />
     <meta property="og:description" content="Especialista em análise espacial, automação de workflows GIS e visualização de dados territoriais com foco em Agronegócio." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cursoctl.github.io/" />
     <meta property="og:image" content="https://cursoctl.github.io/Ortomosaico.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Marcos Leal - Analista GIS | Geodésia & Geoprocessamento" />
-    <meta name="twitter:description" content="Especialista em análise espacial, automação de workflows GIS e visualização de dados territoriais com foco em Agronegócio." />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#08131f" />
     <link rel="canonical" href="https://cursoctl.github.io/" />
-    <title>Marcos Leal · Analista GIS | Geodésia & Geoprocessamento</title>
+    <title>Marcos Leal · Analista GIS & Geoprocessamento</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>" />
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        geo: {
-                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
-                            400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
-                            800: '#166534', 900: '#14532d',
-                        },
-                        ocean: {
-                            400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1',
-                        },
-                        slate: {
-                            850: '#0f1729',
-                        }
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'gradient': 'gradient 15s ease infinite',
-                        'shimmer': 'shimmer 2s infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        gradient: {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                        },
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200% 0' },
-                            '100%': { backgroundPosition: '200% 0' },
-                        }
-                    },
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ── RESET ──────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: #0f172a; 
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #0a0f1a;
+            color: #c8d0e0;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── TOKENS ─────────────────────────────────────────── */
+        :root {
+            --bg:        #0a0f1a;
+            --bg2:       #0e1524;
+            --bg3:       #131d2e;
+            --border:    rgba(255,255,255,0.06);
+            --border-hi: rgba(100,200,130,0.18);
+            --text:      #c8d0e0;
+            --text-dim:  #6b7a96;
+            --text-hi:   #eef2f8;
+            --green:     #5bca82;
+            --green-dim: #2e6645;
+            --teal:      #3db0c8;
+            --amber:     #e0aa4e;
+            --font-head: 'Syne', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'DM Mono', monospace;
+            --r:         10px;
+            --r-lg:      16px;
+        }
+
+        /* ── TYPOGRAPHY ─────────────────────────────────────── */
+        h1, h2, h3, h4 { font-family: var(--font-head); color: var(--text-hi); line-height: 1.15; }
+        h1 { font-size: clamp(2.4rem, 6vw, 4.8rem); font-weight: 800; letter-spacing: -0.02em; }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; letter-spacing: -0.015em; }
+        h3 { font-size: 1.05rem; font-weight: 600; }
+        p  { line-height: 1.7; max-width: 66ch; }
+        a  { color: inherit; text-decoration: none; }
+
+        .mono { font-family: var(--font-mono); }
+
+        /* ── LAYOUT ─────────────────────────────────────────── */
+        .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+        section { padding: 88px 0; }
+        @media (max-width: 768px) { section { padding: 56px 0; } }
+
+        /* ── GRID BACKGROUND ─────────────────────────────────── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(91,202,130,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(91,202,130,0.025) 1px, transparent 1px);
+            background-size: 52px 52px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        * { position: relative; z-index: 1; }
+        body::before { z-index: 0; }
+
+        /* ── NAV ─────────────────────────────────────────────── */
+        #nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            background: rgba(10,15,26,0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            transition: border-color .3s;
+        }
+        #nav.scrolled { border-color: var(--border-hi); }
+        .nav-inner {
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-hi);
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-logo .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: .5; transform: scale(.9); }
+            50%       { opacity: 1;  transform: scale(1.15); }
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            transition: color .2s;
+        }
+        .nav-links a:hover { color: var(--text-hi); }
+        .nav-cta {
+            font-size: .8rem;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 6px;
+            border: 1px solid var(--border-hi);
+            color: var(--green);
+            transition: background .2s, color .2s;
+        }
+        .nav-cta:hover { background: var(--green); color: #0a0f1a; }
+        .nav-toggle { display: none; background: none; border: none; color: var(--text); cursor: pointer; font-size: 1.2rem; }
+
+        #mobile-menu {
+            display: none;
+            position: fixed;
+            top: 60px; left: 0; right: 0;
+            background: rgba(10,15,26,0.97);
+            backdrop-filter: blur(16px);
+            padding: 16px 24px 24px;
+            border-bottom: 1px solid var(--border);
+            z-index: 99;
+        }
+        #mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            font-size: .95rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            border-bottom: 1px solid var(--border);
+            transition: color .2s;
+        }
+        #mobile-menu a:last-child { border-bottom: none; }
+        #mobile-menu a:hover { color: var(--green); }
+
+        @media (max-width: 820px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: block; }
+        }
+
+        /* ── SKIP LINK ───────────────────────────────────────── */
+        .skip { position: absolute; top: -100px; left: 16px; background: var(--green); color: #0a0f1a; padding: 8px 14px; border-radius: 6px; font-weight: 600; font-size: .85rem; z-index: 999; }
+        .skip:focus { top: 8px; }
+
+        /* ── HERO ────────────────────────────────────────────── */
+        #hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-        }
-        
-        h1, h2, h3, h4, .font-display { font-family: 'Space Grotesk', sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        
-        @media (prefers-reduced-motion: reduce) {
-            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+            align-items: center;
+            padding-top: 60px;
+            overflow: hidden;
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #4ade80 0%, #38bdf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            background-size: 200% 200%;
-            animation: gradient 6s ease infinite;
-        }
-
-        .glass-card {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(74, 222, 128, 0.06);
-        }
-        .glass-card-light {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(74, 222, 128, 0.04);
-        }
-
-        .grid-pattern {
-            background-image:
-                linear-gradient(rgba(74, 222, 128, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(74, 222, 128, 0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-        }
-
-        .contour-field {
+        /* Contour lines SVG */
+        .contour {
             position: absolute;
             inset: 0;
-            opacity: 0.25;
-            mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black 30%, transparent 85%);
-            -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black 30%, transparent 85%);
             pointer-events: none;
+            opacity: .22;
+            mask-image: radial-gradient(ellipse 65% 60% at 50% 45%, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 45%, black 20%, transparent 80%);
         }
-        .contour-field path { fill: none; stroke-width: 1.5; }
-        .contour-drift {
-            animation: contourDrift 30s ease-in-out infinite alternate;
+        .contour svg { width: 100%; height: 100%; }
+        .contour path { fill: none; stroke-width: 1.2; }
+
+        .hero-inner {
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 48px 24px;
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 56px;
+            align-items: center;
         }
-        @keyframes contourDrift {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            100% { transform: translate(-1.5%, 1%) scale(1.04) rotate(0.5deg); }
+        @media (max-width: 900px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+            .hero-card { display: none; }
         }
 
-        .glow-ring {
-            animation: glowRing 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes glowRing {
-            0%, 100% { opacity: 0.3; transform: scale(0.95); }
-            50% { opacity: 0.7; transform: scale(1.1); }
-        }
-
-        .project-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-        .project-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 1rem;
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.03), rgba(56, 189, 248, 0.03));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-        .project-card:hover::after { opacity: 1; }
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(74, 222, 128, 0.15);
-        }
-
-        .nav-link {
-            position: relative;
-            font-weight: 500;
-            font-size: 0.875rem;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1.5px;
-            bottom: -2px;
-            left: 0;
-            background: linear-gradient(90deg, #4ade80, #38bdf8);
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after { width: 100%; }
-
-        .skill-bar {
-            transition: width 1.6s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-        .skill-bar::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            transform: translateX(-100%);
-            animation: shimmer 2.5s infinite;
-        }
-        @keyframes shimmer {
-            100% { transform: translateX(100%); }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
-                        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-delay-1 { transition-delay: 0.08s; }
-        .reveal-delay-2 { transition-delay: 0.16s; }
-        .reveal-delay-3 { transition-delay: 0.24s; }
-        .reveal-delay-4 { transition-delay: 0.32s; }
-
-        .timeline-dot {
-            box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12),
-                        0 0 0 8px rgba(22, 163, 74, 0.04);
-        }
-
-        .status-badge {
-            background: rgba(74, 222, 128, 0.08);
-            border: 1px solid rgba(74, 222, 128, 0.15);
-            color: #4ade80;
-            padding: 0.2rem 0.7rem;
-            border-radius: 9999px;
-            font-size: 0.65rem;
-            font-weight: 500;
-            font-family: 'JetBrains Mono', monospace;
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            letter-spacing: 0.02em;
-        }
-        .status-badge-future {
-            background: rgba(251, 191, 36, 0.08);
-            border-color: rgba(251, 191, 36, 0.15);
-            color: #fbbf24;
-        }
-        .status-badge-done {
-            background: rgba(74, 222, 128, 0.12);
-            border-color: rgba(74, 222, 128, 0.25);
-            color: #4ade80;
-        }
-        .status-badge-geotec {
-            background: rgba(56, 189, 248, 0.12);
-            border-color: rgba(56, 189, 248, 0.25);
-            color: #38bdf8;
-        }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #1a3a2a; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
-
-        .scroll-indicator {
-            animation: scrollBounce 2.4s ease-in-out infinite;
-        }
-        @keyframes scrollBounce {
-            0%, 100% { transform: translateY(0); opacity: 0.4; }
-            50% { transform: translateY(8px); opacity: 1; }
-        }
-
-        a:focus-visible, button:focus-visible {
-            outline: 2px solid #4ade80;
-            outline-offset: 3px;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: .72rem;
+            color: var(--green);
+            background: rgba(91,202,130,.06);
+            border: 1px solid rgba(91,202,130,.14);
             border-radius: 4px;
+            padding: 5px 12px;
+            margin-bottom: 24px;
+            letter-spacing: .03em;
+        }
+        .hero-badge .blink {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .stat-number {
-            font-variant-numeric: tabular-nums;
+        .hero-title { margin-bottom: 20px; }
+        .hero-title .accent { color: var(--green); }
+
+        .hero-lead {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            margin-bottom: 36px;
+            max-width: 54ch;
+        }
+        .hero-lead strong { color: var(--text); font-weight: 500; }
+
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: var(--r);
+            background: var(--green);
+            color: #0a0f1a;
+            font-weight: 700;
+            font-size: .9rem;
+            transition: opacity .2s, transform .15s;
+        }
+        .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 22px;
+            border-radius: var(--r);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-weight: 500;
+            font-size: .9rem;
+            transition: border-color .2s, background .2s;
+        }
+        .btn-ghost:hover { border-color: var(--border-hi); background: rgba(255,255,255,.03); }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            padding-top: 36px;
+            border-top: 1px solid var(--border);
+        }
+        @media (max-width: 480px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } }
+        .stat-val {
+            font-family: var(--font-head);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-hi);
+            display: block;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .stat-label { font-size: .73rem; color: var(--text-dim); font-weight: 400; }
+
+        /* Hero card (right side) */
+        .hero-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+        }
+        .hero-card-header {
+            background: var(--bg3);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .dot-red   { width:10px;height:10px;border-radius:50%;background:#ff5f56; }
+        .dot-amber { width:10px;height:10px;border-radius:50%;background:#febc2e; }
+        .dot-green { width:10px;height:10px;border-radius:50%;background:#28c840; }
+        .hero-card-title {
+            margin-left: 8px;
+            font-family: var(--font-mono);
+            font-size: .72rem;
+            color: var(--text-dim);
+        }
+        .hero-card-body { padding: 20px; font-family: var(--font-mono); font-size: .8rem; }
+        .code-line { margin-bottom: 4px; }
+        .code-line .kw  { color: var(--teal); }
+        .code-line .fn  { color: var(--green); }
+        .code-line .str { color: var(--amber); }
+        .code-line .cmt { color: var(--text-dim); }
+        .code-line .pn  { color: var(--text-dim); }
+        .coord-display {
+            margin-top: 20px;
+            padding: 14px;
+            background: rgba(91,202,130,.05);
+            border: 1px solid rgba(91,202,130,.1);
+            border-radius: 8px;
+            font-family: var(--font-mono);
+            font-size: .72rem;
+            color: var(--text-dim);
+        }
+        .coord-display span { color: var(--green); display: block; }
+
+        /* ── SECTION LABELS ──────────────────────────────────── */
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: .7rem;
+            color: var(--green);
+            letter-spacing: .08em;
+            border-left: 2px solid var(--green);
+            padding-left: 10px;
+            margin-bottom: 14px;
             display: inline-block;
         }
 
-        ::selection {
-            background: rgba(74, 222, 128, 0.2);
-            color: #ffffff;
+        /* ── GLASS PANEL ─────────────────────────────────────── */
+        .panel {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 28px;
+            transition: border-color .3s;
         }
+        .panel:hover { border-color: rgba(91,202,130,.12); }
 
-        @media print {
-            .glass-card { background: #0f172a !important; border-color: #1e293b !important; }
-            .contour-field { display: none; }
-            .project-card:hover { transform: none !important; }
+        /* ── SOBRE ───────────────────────────────────────────── */
+        #sobre { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .sobre-grid { display: grid; grid-template-columns: 1fr 320px; gap: 56px; align-items: start; }
+        @media (max-width: 820px) { .sobre-grid { grid-template-columns: 1fr; } }
+        .sobre-text p { color: var(--text-dim); margin-bottom: 16px; font-size: .97rem; }
+        .sobre-text p strong { color: var(--text); font-weight: 500; }
+        .sobre-text .quote {
+            margin-top: 24px;
+            padding: 16px 18px;
+            border-left: 2px solid var(--green-dim);
+            background: rgba(91,202,130,.04);
+            border-radius: 0 8px 8px 0;
+            font-size: .88rem;
+            color: var(--text-dim);
+            font-style: italic;
+            line-height: 1.65;
         }
+        .sobre-text .quote strong { color: var(--green); font-style: normal; }
 
-        .filter-btn.active {
-            background: rgba(74, 222, 128, 0.15);
-            border-color: rgba(74, 222, 128, 0.3);
-            color: #4ade80;
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+        .tag {
+            font-size: .78rem;
+            font-weight: 500;
+            padding: 6px 13px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: border-color .2s, color .2s;
         }
-        .filter-btn:hover:not(.active) {
-            border-color: rgba(74, 222, 128, 0.15);
-            color: #e2e8f0;
-        }
+        .tag:hover { border-color: var(--border-hi); color: var(--text); }
+        .tag i { font-size: .72rem; color: var(--green); }
 
-        .map-placeholder {
-            background: linear-gradient(135deg, #0f172a 0%, #1a2a3a 100%);
+        .sobre-card { display: flex; flex-direction: column; gap: 14px; }
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 16px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+        }
+        .info-icon {
+            width: 38px; height: 38px;
+            border-radius: 8px;
+            background: rgba(91,202,130,.08);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(74, 222, 128, 0.3);
-            font-size: 2rem;
+            flex-shrink: 0;
+            color: var(--green);
+            font-size: .85rem;
         }
+        .info-icon.teal { background: rgba(61,176,200,.08); color: var(--teal); }
+        .info-content h4 { font-size: .88rem; margin-bottom: 2px; font-family: var(--font-body); font-weight: 600; }
+        .info-content p { font-size: .78rem; color: var(--text-dim); margin: 0; max-width: none; line-height: 1.5; }
+        .info-content span { font-family: var(--font-mono); font-size: .7rem; color: var(--teal); display: block; margin-top: 3px; }
+
+        /* ── SKILLS ──────────────────────────────────────────── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .skill-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 22px;
+            transition: border-color .3s;
+        }
+        .skill-card:hover { border-color: rgba(91,202,130,.15); }
+        .skill-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .skill-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-head);
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--text-hi);
+        }
+        .skill-icon {
+            width: 34px; height: 34px;
+            border-radius: 8px;
+            background: rgba(91,202,130,.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: .85rem;
+        }
+        .skill-icon.teal { background: rgba(61,176,200,.08); color: var(--teal); }
+        .skill-level {
+            font-family: var(--font-mono);
+            font-size: .68rem;
+            color: var(--text-dim);
+            background: var(--bg3);
+            padding: 3px 9px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+        .skill-bar-track {
+            width: 100%;
+            height: 3px;
+            background: var(--bg3);
+            border-radius: 99px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 99px;
+            background: linear-gradient(90deg, var(--green-dim), var(--green));
+            width: 0%;
+            transition: width 1.4s cubic-bezier(.16,1,.3,1);
+        }
+        .skill-bar-fill.teal { background: linear-gradient(90deg, #1a5a6a, var(--teal)); }
+        .skill-desc { font-size: .8rem; color: var(--text-dim); line-height: 1.6; max-width: none; }
+
+        /* ── AGRO ────────────────────────────────────────────── */
+        #agro { background: var(--bg); }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 18px;
+        }
+        .proj-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: border-color .3s, transform .25s;
+        }
+        .proj-card:hover { border-color: rgba(91,202,130,.2); transform: translateY(-3px); }
+        .proj-thumb {
+            height: 140px;
+            background: var(--bg3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(91,202,130,.2);
+            font-size: 2.4rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .proj-thumb.teal { color: rgba(61,176,200,.2); }
+        .proj-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        .proj-title { font-family: var(--font-head); font-size: .97rem; font-weight: 600; color: var(--text-hi); margin-bottom: 6px; }
+        .proj-desc { font-size: .82rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 14px; max-width: none; }
+        .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+        .ptag {
+            font-size: .7rem;
+            padding: 3px 9px;
+            border-radius: 4px;
+            background: var(--bg3);
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+        }
+        .badge {
+            position: absolute;
+            top: 10px; right: 10px;
+            font-family: var(--font-mono);
+            font-size: .65rem;
+            padding: 3px 9px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .badge.done   { background: rgba(91,202,130,.1);  border: 1px solid rgba(91,202,130,.2); color: var(--green); }
+        .badge.dev    { background: rgba(61,176,200,.1);  border: 1px solid rgba(61,176,200,.2); color: var(--teal); }
+        .badge.soon   { background: rgba(224,170,78,.1);  border: 1px solid rgba(224,170,78,.2); color: var(--amber); }
+
+        .proj-footer {
+            padding: 14px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .proj-meta { font-size: .72rem; color: var(--text-dim); }
+        .proj-link {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--green);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color .2s;
+        }
+        .proj-link:hover { color: #7ee0a2; }
+        .proj-link.teal { color: var(--teal); }
+        .proj-link.teal:hover { color: #72cfe0; }
+
+        /* ── MAPAS ───────────────────────────────────────────── */
+        #mapas { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+        .fbtn {
+            font-size: .78rem;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            background: transparent;
+            cursor: pointer;
+            transition: border-color .2s, color .2s, background .2s;
+        }
+        .fbtn:hover { border-color: var(--border-hi); color: var(--text); }
+        .fbtn.active { border-color: var(--green); color: var(--green); background: rgba(91,202,130,.07); }
+
+        .map-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column; transition: border-color .3s, transform .25s; }
+        .map-card:hover { border-color: rgba(91,202,130,.2); transform: translateY(-3px); }
+        .map-thumb {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background: var(--bg3);
+        }
+        .map-thumb img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: .75;
+            transition: opacity .4s, transform .4s;
+        }
+        .map-card:hover .map-thumb img { opacity: 1; transform: scale(1.04); }
+        .map-thumb .placeholder {
+            width: 100%; height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: rgba(91,202,130,.2);
+        }
+        .map-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+        .map-title { font-family: var(--font-head); font-size: .95rem; font-weight: 600; color: var(--text-hi); margin-bottom: 6px; }
+        .map-desc { font-size: .8rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 14px; flex: 1; max-width: none; }
+        .map-footer { display: flex; align-items: center; justify-content: space-between; }
+        .map-meta { font-size: .7rem; color: var(--text-dim); }
+
+        /* ── PROJETOS ────────────────────────────────────────── */
+        #projetos { background: var(--bg); }
+
+        /* ── ROADMAP ─────────────────────────────────────────── */
+        #roadmap { background: var(--bg2); border-top: 1px solid var(--border); }
+        .timeline { position: relative; padding-left: 32px; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px; top: 8px; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--green), rgba(61,176,200,.3), transparent);
+        }
+        .tl-item { position: relative; margin-bottom: 36px; }
+        .tl-item:last-child { margin-bottom: 0; }
+        .tl-dot {
+            position: absolute;
+            left: -28px; top: 4px;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--green);
+            border: 2px solid var(--bg2);
+            box-shadow: 0 0 0 3px rgba(91,202,130,.15);
+        }
+        .tl-dot.future { background: var(--amber); box-shadow: 0 0 0 3px rgba(224,170,78,.15); }
+        .tl-dot.grad { background: linear-gradient(135deg, var(--green), var(--teal)); }
+        .tl-period { font-family: var(--font-mono); font-size: .7rem; color: var(--teal); margin-bottom: 5px; }
+        .tl-title { font-family: var(--font-head); font-size: 1rem; font-weight: 600; color: var(--text-hi); margin-bottom: 6px; }
+        .tl-desc { font-size: .85rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 10px; max-width: 60ch; }
+        .tl-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tl-tag {
+            font-size: .7rem;
+            padding: 3px 9px;
+            border-radius: 4px;
+            background: var(--bg3);
+            color: var(--text-dim);
+            border: 1px solid var(--border);
+        }
+        .tl-tag.hi { background: rgba(91,202,130,.08); color: var(--green); border-color: rgba(91,202,130,.15); }
+
+        /* ── CONTATO ─────────────────────────────────────────── */
+        #contato { background: var(--bg); }
+        .contato-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+        .contato-inner h2 { margin-bottom: 16px; }
+        .contato-inner .lead { color: var(--text-dim); margin: 0 auto 36px; font-size: 1rem; }
+        .contato-inner .lead strong { color: var(--text); font-weight: 500; }
+        .contato-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 40px; }
+        .social-row { display: flex; justify-content: center; gap: 14px; }
+        .social-btn {
+            width: 42px; height: 42px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dim);
+            font-size: .9rem;
+            transition: border-color .2s, color .2s, background .2s;
+        }
+        .social-btn:hover { border-color: var(--border-hi); color: var(--green); background: rgba(91,202,130,.05); }
+
+        /* ── FOOTER ──────────────────────────────────────────── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 24px;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: .72rem;
+            color: var(--text-dim);
+        }
+        footer span { color: var(--teal); }
+
+        /* ── ACCESSIBILITY ───────────────────────────────────── */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--green);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        }
+        ::selection { background: rgba(91,202,130,.22); color: #fff; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--green-dim); border-radius: 4px; }
+
+        /* ── REVEAL ──────────────────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+        .reveal.visible { opacity: 1; transform: none; }
+    
+/* =========================================================
+   MODERN PORTFOLIO REDESIGN — Marcos Leal
+   Visual: premium GIS / data / technology
+   ========================================================= */
+
+:root{
+    --bg:#07111f;
+    --bg2:#0b1728;
+    --bg3:#102238;
+    --surface:rgba(15,31,51,.82);
+    --surface-2:rgba(18,39,62,.72);
+    --border:rgba(148,190,220,.13);
+    --border-hi:rgba(83,211,196,.42);
+    --text:#c9d7e6;
+    --text-dim:#8295aa;
+    --text-hi:#f3f8fc;
+    --green:#63e6be;
+    --green-dim:#237b6a;
+    --teal:#55b9ff;
+    --amber:#f2c46d;
+    --purple:#a78bfa;
+    --font-head:'Syne',sans-serif;
+    --font-body:'DM Sans',sans-serif;
+    --font-mono:'DM Mono',monospace;
+    --r:14px;
+    --r-lg:22px;
+    --shadow:0 24px 70px rgba(0,0,0,.28);
+}
+
+html{scroll-padding-top:80px}
+
+body{
+    background:
+      radial-gradient(900px 500px at 80% -5%, rgba(85,185,255,.13), transparent 65%),
+      radial-gradient(700px 500px at 5% 20%, rgba(99,230,190,.08), transparent 65%),
+      var(--bg);
+    color:var(--text);
+}
+
+body::before{
+    background-image:
+      linear-gradient(rgba(99,230,190,.025) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(99,230,190,.025) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+
+::selection{background:rgba(99,230,190,.28);color:#fff}
+
+#nav{
+    height:70px;
+    background:rgba(7,17,31,.72);
+    border-bottom:1px solid rgba(148,190,220,.10);
+    box-shadow:0 8px 30px rgba(0,0,0,.10);
+}
+
+.nav-inner{max-width:1240px}
+.nav-logo{font-size:1.08rem}
+.nav-logo .dot{
+    width:9px;height:9px;
+    background:var(--green);
+    box-shadow:0 0 18px rgba(99,230,190,.7);
+}
+.nav-links{gap:30px}
+.nav-links a{font-size:.78rem;letter-spacing:.02em}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{
+    padding:8px 15px;
+    border-radius:9px;
+    border-color:rgba(99,230,190,.3);
+    background:rgba(99,230,190,.04);
+}
+.nav-cta:hover{background:var(--green);color:#07111f}
+
+#mobile-menu{
+    top:70px;
+    background:rgba(7,17,31,.96);
+}
+
+#hero{
+    min-height:100vh;
+    position:relative;
+    background:
+      radial-gradient(700px 500px at 70% 50%,rgba(85,185,255,.07),transparent 70%),
+      radial-gradient(500px 400px at 20% 80%,rgba(99,230,190,.06),transparent 70%);
+}
+
+.hero-inner{
+    max-width:1240px;
+    grid-template-columns:minmax(0,1fr) 390px;
+    gap:72px;
+    padding-top:110px;
+    padding-bottom:80px;
+}
+
+.hero-badge{
+    background:rgba(99,230,190,.055);
+    border:1px solid rgba(99,230,190,.18);
+    border-radius:999px;
+    padding:7px 14px;
+    box-shadow:0 8px 30px rgba(0,0,0,.12);
+}
+
+.hero-title{
+    font-size:clamp(3rem,7vw,6.2rem);
+    line-height:.98;
+    letter-spacing:-.045em;
+    max-width:900px;
+    margin-bottom:28px;
+}
+.hero-title .accent{
+    background:linear-gradient(110deg,var(--green),var(--teal));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 8px 24px rgba(99,230,190,.13));
+}
+
+.hero-lead{
+    font-size:1.08rem;
+    line-height:1.8;
+    color:#8fa2b7;
+    max-width:62ch;
+}
+.hero-lead strong{color:#dce8f2}
+
+.hero-actions{gap:13px;margin-bottom:60px}
+.btn-primary,.btn-ghost{
+    border-radius:11px;
+    min-height:48px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+.btn-primary{
+    background:linear-gradient(135deg,var(--green),#48c8ab);
+    color:#06131a;
+    padding:14px 25px;
+}
+.btn-primary:hover{
+    opacity:1;
+    transform:translateY(-2px);
+    box-shadow:0 14px 36px rgba(99,230,190,.18);
+}
+.btn-ghost{
+    border-color:rgba(148,190,220,.15);
+    background:rgba(255,255,255,.018);
+    padding:14px 21px;
+}
+.btn-ghost:hover{
+    border-color:rgba(99,230,190,.35);
+    background:rgba(99,230,190,.055);
+}
+
+.hero-stats{
+    gap:28px;
+    padding-top:30px;
+    border-top:1px solid rgba(148,190,220,.11);
+}
+.stat-val{font-size:2.15rem}
+.stat-label{letter-spacing:.02em}
+
+.hero-card{
+    background:linear-gradient(145deg,rgba(16,34,56,.9),rgba(9,24,41,.84));
+    border:1px solid rgba(148,190,220,.15);
+    border-radius:22px;
+    box-shadow:var(--shadow);
+    transform:rotate(.5deg);
+    transition:transform .35s ease,box-shadow .35s ease;
+}
+.hero-card:hover{
+    transform:rotate(0) translateY(-5px);
+    box-shadow:0 30px 90px rgba(0,0,0,.35);
+}
+.hero-card-header{
+    background:rgba(255,255,255,.025);
+    border-bottom-color:rgba(148,190,220,.10);
+    padding:14px 17px;
+}
+.hero-card-body{padding:22px}
+.coord-display{
+    background:linear-gradient(135deg,rgba(99,230,190,.07),rgba(85,185,255,.045));
+    border-color:rgba(99,230,190,.14);
+}
+
+.contour{
+    opacity:.28;
+    mask-image:radial-gradient(ellipse 70% 65% at 55% 45%,black 15%,transparent 78%);
+}
+
+section{padding:105px 0}
+.wrap{max-width:1240px}
+
+#sobre,#mapas,#roadmap{
+    background:rgba(11,23,40,.72);
+    border-color:rgba(148,190,220,.08);
+}
+
+.section-label{
+    color:var(--green);
+    border-left-color:var(--green);
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.66rem;
+}
+
+h2{
+    letter-spacing:-.035em;
+    font-size:clamp(2rem,4vw,3.15rem);
+}
+
+.panel,.skill-card,.proj-card,.map-card,.info-row{
+    border-color:rgba(148,190,220,.11);
+    box-shadow:0 16px 50px rgba(0,0,0,.12);
+}
+
+.skill-card,.proj-card,.map-card{
+    background:linear-gradient(145deg,rgba(15,31,51,.84),rgba(10,23,39,.88));
+}
+
+.skill-card,.proj-card,.map-card{
+    transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+}
+.skill-card:hover,.proj-card:hover,.map-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(99,230,190,.25);
+    box-shadow:0 22px 60px rgba(0,0,0,.22);
+}
+
+.info-row{
+    background:rgba(16,34,56,.62);
+    border-radius:15px;
+}
+.info-icon,.skill-icon{
+    border-radius:11px;
+    background:rgba(99,230,190,.075);
+}
+.info-icon.teal,.skill-icon.teal{
+    background:rgba(85,185,255,.075);
+}
+.tag{
+    border-radius:999px;
+    background:rgba(255,255,255,.018);
+    padding:7px 13px;
+}
+.tag:hover{
+    background:rgba(99,230,190,.05);
+}
+
+.skill-bar-track{
+    height:5px;
+    background:rgba(255,255,255,.055);
+}
+.skill-bar-fill{
+    background:linear-gradient(90deg,#2b9c82,var(--green));
+}
+.skill-bar-fill.teal{
+    background:linear-gradient(90deg,#2879a8,var(--teal));
+}
+
+.proj-thumb{
+    height:165px;
+    background:
+      radial-gradient(circle at 50% 40%,rgba(99,230,190,.09),transparent 55%),
+      #0d2034;
+}
+.proj-thumb i{
+    filter:drop-shadow(0 8px 20px rgba(99,230,190,.18));
+}
+.badge{
+    border-radius:999px;
+    padding:5px 10px;
+    backdrop-filter:blur(8px);
+}
+
+.filter-row{gap:10px}
+.fbtn{
+    border-radius:999px;
+    padding:8px 17px;
+    background:rgba(255,255,255,.018);
+}
+.fbtn.active{
+    background:rgba(99,230,190,.09);
+}
+
+.map-thumb{
+    height:205px;
+    background:#0d2034;
+}
+.map-thumb img{
+    opacity:.82;
+}
+.map-card:hover .map-thumb img{
+    filter:saturate(1.08) contrast(1.04);
+}
+
+.timeline::before{
+    background:linear-gradient(to bottom,var(--green),rgba(85,185,255,.45),transparent);
+}
+.tl-dot{
+    box-shadow:0 0 0 4px rgba(99,230,190,.12),0 0 22px rgba(99,230,190,.18);
+}
+
+#contato{
+    background:
+      radial-gradient(600px 300px at 50% 35%,rgba(99,230,190,.08),transparent 70%),
+      var(--bg);
+}
+.contato-inner{
+    max-width:760px;
+    padding:48px 28px;
+    border:1px solid rgba(148,190,220,.11);
+    border-radius:26px;
+    background:linear-gradient(145deg,rgba(15,31,51,.7),rgba(9,22,38,.55));
+    box-shadow:var(--shadow);
+}
+.social-btn{
+    border-radius:11px;
+    background:rgba(255,255,255,.018);
+}
+.social-btn:hover{
+    background:rgba(99,230,190,.06);
+}
+
+footer{
+    background:#050d18;
+    border-top-color:rgba(148,190,220,.09);
+}
+
+@media (max-width:900px){
+    .hero-inner{padding-top:100px}
+    .hero-title{font-size:clamp(2.8rem,11vw,5rem)}
+    .hero-card{transform:none}
+}
+@media (max-width:600px){
+    section{padding:78px 0}
+    .wrap{padding:0 18px}
+    .hero-inner{padding-left:18px;padding-right:18px}
+    .hero-actions .btn-primary,.hero-actions .btn-ghost{
+        width:100%;
+        justify-content:center;
+    }
+    .hero-stats{gap:20px}
+    .stat-val{font-size:1.8rem}
+    .contato-inner{padding:34px 20px}
+}
+
+/* subtle entrance polish */
+@keyframes floatCard{
+    0%,100%{transform:translateY(0) rotate(.5deg)}
+    50%{transform:translateY(-7px) rotate(.5deg)}
+}
+@media (min-width:901px){
+    .hero-card{animation:floatCard 7s ease-in-out infinite}
+}
+
+    
+/* ── Softer typography refinement ── */
+.hero-inner{
+    grid-template-columns:minmax(0,1fr) 360px;
+    gap:56px;
+}
+.hero-title{
+    font-size:clamp(2.35rem,5vw,4.25rem);
+    line-height:1.04;
+    letter-spacing:-.035em;
+    max-width:720px;
+    margin:0 auto 22px;
+}
+.hero-inner > div:first-child{
+    text-align:center;
+}
+.hero-badge{
+    margin-left:auto;
+    margin-right:auto;
+}
+.hero-lead{
+    margin-left:auto;
+    margin-right:auto;
+    font-size:1rem;
+    line-height:1.72;
+}
+.hero-actions{
+    justify-content:center;
+    margin-bottom:48px;
+}
+.hero-stats{
+    max-width:680px;
+    margin:0 auto;
+}
+section h2{
+    font-size:clamp(1.65rem,3vw,2.45rem);
+    letter-spacing:-.025em;
+}
+.section-label{
+    font-size:.63rem;
+}
+.sobre-text h2{
+    max-width:650px;
+}
+@media (max-width:900px){
+    .hero-title{
+        font-size:clamp(2.2rem,8vw,3.6rem);
+    }
+}
+@media (max-width:600px){
+    .hero-title{
+        font-size:2.25rem;
+        line-height:1.08;
+    }
+    section h2{
+        font-size:1.85rem;
+    }
+}
+
+    
+/* =========================================================
+   V3 — MINIMAL GIS / DATA PORTFOLIO
+   ========================================================= */
+:root{
+    --bg:#08131f;
+    --bg-soft:#0c1927;
+    --surface:#0f1e2d;
+    --surface-2:#122538;
+    --line:rgba(170,196,218,.12);
+    --line-strong:rgba(99,230,190,.25);
+    --text:#d7e2ec;
+    --muted:#899bad;
+    --white:#f2f7fa;
+    --accent:#63e6be;
+    --accent-2:#55b9ff;
+}
+
+/* quieter global visual language */
+body{
+    background:
+      radial-gradient(800px 420px at 75% 0%,rgba(85,185,255,.07),transparent 70%),
+      var(--bg);
+}
+body::before{opacity:.45}
+#nav{
+    height:66px;
+    background:rgba(8,19,31,.88);
+    backdrop-filter:blur(18px);
+}
+.nav-inner{max-width:1160px}
+.nav-links{gap:25px}
+.nav-links a{font-size:.73rem}
+.nav-logo{font-size:1rem}
+
+#hero{
+    min-height:auto;
+    padding:76px 0 72px;
+    background:none;
+}
+.hero-inner{
+    max-width:1160px;
+    display:block;
+    padding-top:0;
+    padding-bottom:0;
+}
+.hero-inner > div:first-child{
+    max-width:820px;
+    margin:0 auto;
+    text-align:center;
+}
+.hero-badge{
+    font-size:.65rem;
+    letter-spacing:.09em;
+    padding:6px 12px;
+}
+.hero-title{
+    font-size:clamp(2.15rem,4.6vw,3.8rem);
+    line-height:1.08;
+    max-width:760px;
+    margin:20px auto 18px;
+    letter-spacing:-.035em;
+}
+.hero-lead{
+    max-width:650px;
+    font-size:.96rem;
+    line-height:1.7;
+    color:var(--muted);
+}
+.hero-actions{
+    margin:27px 0 36px;
+}
+.btn-primary,.btn-ghost{
+    min-height:43px;
+    padding:11px 18px;
+    font-size:.76rem;
+}
+.hero-stats{
+    max-width:600px;
+    padding-top:23px;
+    gap:36px;
+    margin:auto;
+}
+.stat-val{font-size:1.55rem}
+.stat-label{font-size:.61rem}
+
+.hero-card{
+    display:none;
+}
+.contour{display:none}
+
+/* section rhythm */
+section{padding:82px 0}
+.wrap{max-width:1160px}
+.section-label{
+    font-size:.61rem;
+    letter-spacing:.16em;
+}
+section h2{
+    font-size:clamp(1.65rem,3vw,2.3rem);
+    line-height:1.15;
+    margin-top:9px;
+}
+
+/* About becomes cleaner */
+#sobre .sobre-grid{
+    gap:52px;
+}
+#sobre .panel{
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    padding:0;
+}
+.info-row{
+    background:rgba(15,30,45,.7);
+    border-radius:12px;
+    padding:14px;
+}
+
+/* Skills */
+.skill-grid{gap:13px}
+.skill-card{
+    padding:19px;
+    border-radius:13px;
+    box-shadow:none;
+}
+.skill-card:hover{
+    transform:translateY(-3px);
+}
+.skill-icon{
+    width:36px;
+    height:36px;
+    margin-bottom:14px;
+}
+.skill-card h3{font-size:.9rem}
+.skill-card p{font-size:.72rem}
+
+/* Projects */
+.proj-grid{gap:16px}
+.proj-card{
+    border-radius:15px;
+    box-shadow:none;
+    overflow:hidden;
+}
+.proj-thumb{height:145px}
+.proj-body{padding:18px}
+.proj-body h3{font-size:1rem}
+.proj-body p{font-size:.76rem;line-height:1.65}
+.badge{font-size:.58rem}
+
+/* Make projects visually primary */
+#projetos .section-head{
+    margin-bottom:27px;
+}
+
+/* Maps */
+.map-grid{gap:16px}
+.map-card{
+    border-radius:15px;
+    box-shadow:none;
+}
+.map-thumb{height:190px}
+.map-info{padding:17px}
+.map-info h3{font-size:.96rem}
+.map-info p{font-size:.72rem}
+
+/* Filters */
+.filter-row{justify-content:center}
+.fbtn{
+    font-size:.65rem;
+    padding:7px 14px;
+}
+
+/* Timeline */
+.timeline{max-width:820px}
+.tl-item{padding-bottom:34px}
+.tl-content{
+    padding:17px 19px;
+    border-radius:13px;
+    box-shadow:none;
+}
+.tl-content h3{font-size:.92rem}
+.tl-content p{font-size:.73rem}
+
+/* Contact */
+#contato{
+    padding-top:78px;
+    padding-bottom:85px;
+}
+.contato-inner{
+    border:0;
+    background:transparent;
+    box-shadow:none;
+    padding:0;
+}
+.contato-inner h2{
+    max-width:650px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.contato-inner p{
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* footer */
+footer{
+    padding:27px 0;
+}
+.footer-inner{max-width:1160px}
+.footer-inner span{font-size:.63rem}
+
+/* subtle interactions only */
+.skill-card,.proj-card,.map-card{
+    transition:border-color .2s ease,transform .2s ease;
+}
+.social-btn{
+    transition:background .2s ease,border-color .2s ease;
+}
+
+@media(max-width:900px){
+    #hero{padding-top:66px}
+}
+@media(max-width:600px){
+    #hero{padding:55px 0 60px}
+    .hero-title{font-size:2.1rem}
+    .hero-lead{font-size:.9rem}
+    .hero-actions{flex-direction:column}
+    .hero-actions .btn-primary,
+    .hero-actions .btn-ghost{width:100%}
+    .hero-stats{gap:20px}
+    section{padding:65px 0}
+}
+
+    
+/* =========================================================
+   V4 — STUDENT / EARLY-CAREER EDITION
+   More personal, warm and credible; intentionally not "senior".
+   ========================================================= */
+:root{
+    --bg:#091521;
+    --surface:#0d1c2a;
+    --surface-2:#112437;
+    --line:rgba(180,205,225,.11);
+    --text:#d9e4ed;
+    --muted:#91a3b4;
+    --accent:#69d8b5;
+    --accent-soft:rgba(105,216,181,.08);
+}
+
+.hero-inner > div:first-child{
+    max-width:760px;
+}
+.hero-title{
+    font-size:clamp(2rem,4.2vw,3.45rem);
+    font-weight:600;
+}
+.hero-title .accent{
+    background:linear-gradient(110deg,#69d8b5,#72c8ee);
+    -webkit-background-clip:text;
+    background-clip:text;
+}
+.hero-lead{
+    max-width:620px;
+}
+
+/* Small "currently learning" feeling without looking amateur */
+.hero-badge{
+    background:var(--accent-soft);
+    border-color:rgba(105,216,181,.18);
+}
+
+/* Give projects more personality */
+#projetos .section-head,
+#mapas .section-head{
+    max-width:760px;
+}
+.proj-card,.map-card{
+    background:linear-gradient(145deg,rgba(15,32,47,.92),rgba(10,23,36,.94));
+}
+.proj-thumb{
+    background:
+      radial-gradient(circle at 50% 45%,rgba(105,216,181,.08),transparent 58%),
+      #0d2031;
+}
+
+/* Skill cards feel like areas of study, not corporate competencies */
+.skill-card{
+    background:rgba(13,28,42,.72);
+}
+.skill-card h3{
+    font-weight:600;
+}
+.skill-card p{
+    color:#8498aa;
+}
+
+/* About section becomes more human */
+#sobre .section-head{
+    margin-bottom:26px;
+}
+
+/* More emphasis on learning path */
+.timeline .tl-content{
+    background:rgba(13,28,42,.7);
+}
+
+/* Contact: student-friendly, direct */
+.contato-inner h2{
+    max-width:600px;
+}
+.contato-inner p{
+    color:#91a3b4;
+}
+
+/* Keep it understated */
+.glow,.hero-card,.contour{
+    opacity:.0;
+}
+
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200 antialiased grid-pattern">
-    <a href="#sobre" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-geo-500 focus:text-white focus:rounded-lg focus:font-semibold focus:text-sm">Pular para o conteúdo</a>
+<body>
+    <a href="#sobre" class="skip">Pular para conteúdo</a>
 
-    <!-- ========== NAVIGATION ========== -->
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar" role="navigation" aria-label="Navegação principal">
-        <div class="glass-card border-b border-geo-900/20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-14 sm:h-16">
-                    <div class="flex items-center gap-3">
-                        <div class="relative flex-shrink-0">
-                            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-geo-400 to-ocean-500 flex items-center justify-center shadow-lg shadow-geo-500/20">
-                                <i class="fas fa-globe-americas text-white text-sm"></i>
-                            </div>
-                            <div class="absolute -top-1 -right-1 w-2 h-2 bg-geo-400 rounded-full glow-ring"></div>
-                        </div>
-                        <span class="font-display font-bold text-lg tracking-tight">
-                            <span class="text-white">MARCOS</span><span class="gradient-text">LEAL</span>
-                        </span>
-                        <span class="hidden sm:inline-block text-[10px] text-slate-500 font-mono bg-slate-800/50 px-2 py-0.5 rounded border border-slate-700/50">GIS</span>
-                    </div>
-
-                    <div class="hidden md:flex items-center gap-6 lg:gap-8">
-                        <a href="#sobre" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Sobre</a>
-                        <a href="#skills" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Skills</a>
-                        <a href="#agro" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Agro</a>
-                        <a href="#mapas" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Mapas</a>
-                        <a href="#projetos" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Projetos</a>
-                        <a href="#roadmap" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Roadmap</a>
-                        <a href="#contato" class="nav-link text-sm text-slate-300 hover:text-white transition-colors">Contato</a>
-                        <a href="https://github.com/cursoctl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-geo-600/15 border border-geo-500/20 text-geo-400 text-sm font-medium hover:bg-geo-600/25 hover:border-geo-500/35 transition-all">
-                            <i class="fab fa-github text-sm"></i>GitHub
-                        </a>
-                    </div>
-
-                    <button class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg hover:bg-slate-800/50 transition-colors" onclick="toggleMobileMenu()" aria-label="Alternar menu" aria-expanded="false" id="menu-btn">
-                        <i class="fas fa-bars text-xl" id="menu-icon"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-geo-900/20" role="menu">
-            <div class="px-4 pt-2 pb-4 space-y-1">
-                <a href="#sobre" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Sobre</a>
-                <a href="#skills" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Skills</a>
-                <a href="#agro" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Agro</a>
-                <a href="#mapas" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Mapas</a>
-                <a href="#projetos" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Projetos</a>
-                <a href="#roadmap" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Roadmap</a>
-                <a href="#contato" class="block px-3 py-2.5 rounded-lg text-slate-300 hover:bg-geo-900/30 hover:text-white transition-colors" role="menuitem">Contato</a>
-                <a href="https://github.com/cursoctl" target="_blank" rel="noopener noreferrer" class="block px-3 py-2.5 rounded-lg text-geo-400 hover:bg-geo-900/30 transition-colors" role="menuitem">
-                    <i class="fab fa-github mr-2"></i>GitHub
-                </a>
-            </div>
+    <!-- NAV -->
+    <nav id="nav" role="navigation" aria-label="Navegação principal">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo" aria-label="Início">
+                <div class="dot" aria-hidden="true"></div>
+                Marcos Leal
+            </a>
+            <ul class="nav-links" role="list">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#agro">Agro</a></li>
+                <li><a href="#mapas">Mapas</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="https://github.com/cursoctl" target="_blank" rel="noopener" class="nav-cta"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+            </ul>
+            <button class="nav-toggle" onclick="toggleMenu()" aria-label="Abrir menu" aria-expanded="false" id="menu-btn">
+                <i class="fas fa-bars" id="menu-icon" aria-hidden="true"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- ========== HERO ========== -->
-    <section class="relative min-h-screen flex items-center justify-center pt-14 overflow-hidden" id="hero">
-        <svg class="contour-field contour-drift" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <path d="M -50,650 C 150,600 250,700 450,650 C 650,600 750,680 950,630 C 1050,610 1150,650 1250,620" stroke="#4ade80" stroke-opacity="0.4"/>
-            <path d="M -50,590 C 150,530 260,640 460,580 C 660,520 760,610 960,560 C 1070,535 1160,580 1250,550" stroke="#4ade80" stroke-opacity="0.35"/>
-            <path d="M -50,530 C 160,460 270,570 470,500 C 670,430 770,530 970,480 C 1080,450 1170,500 1250,470" stroke="#38bdf8" stroke-opacity="0.35"/>
-            <path d="M -50,470 C 170,390 280,500 480,420 C 680,340 780,440 980,380 C 1090,345 1180,400 1250,370" stroke="#38bdf8" stroke-opacity="0.3"/>
-            <path d="M -50,410 C 180,320 290,430 490,340 C 690,250 790,350 990,280 C 1100,240 1190,290 1250,260" stroke="#f59e0b" stroke-opacity="0.2"/>
-            <path d="M -50,350 C 190,260 300,350 500,260 C 700,170 800,250 1000,180 C 1110,140 1200,180 1250,160" stroke="#4ade80" stroke-opacity="0.15"/>
-        </svg>
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" aria-label="Menu mobile" role="menu">
+        <a href="#sobre" role="menuitem">Sobre</a>
+        <a href="#skills" role="menuitem">Skills</a>
+        <a href="#agro" role="menuitem">Agro</a>
+        <a href="#mapas" role="menuitem">Mapas</a>
+        <a href="#projetos" role="menuitem">Projetos</a>
+        <a href="#roadmap" role="menuitem">Roadmap</a>
+        <a href="#contato" role="menuitem">Contato</a>
+        <a href="https://github.com/cursoctl" target="_blank" rel="noopener" role="menuitem">GitHub</a>
+    </div>
 
-        <div class="absolute top-20 left-4 lg:left-8 hidden lg:flex flex-col gap-0.5 font-mono text-[10px] text-geo-400/50 coord-tick" aria-hidden="true">
-            <span id="coord-lat">LAT -31.7654°</span>
-            <span id="coord-lng">LNG -52.3376°</span>
-            <span class="text-slate-600 text-[8px]">EPSG:4326 (Pelotas/RS)</span>
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+        <!-- Contour background -->
+        <div class="contour" aria-hidden="true">
+            <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-80,600 C100,550 200,640 420,590 C640,540 720,620 940,570 C1060,545 1160,590 1280,560" stroke="#5bca82" stroke-opacity=".55"/>
+                <path d="M-80,530 C110,470 220,560 440,500 C660,440 740,530 960,480 C1080,450 1170,500 1280,470" stroke="#5bca82" stroke-opacity=".45"/>
+                <path d="M-80,460 C130,385 240,475 460,405 C680,335 760,430 980,370 C1100,335 1185,385 1280,355" stroke="#3db0c8" stroke-opacity=".4"/>
+                <path d="M-80,390 C150,305 260,390 480,310 C700,230 780,320 1000,250 C1120,210 1200,260 1280,230" stroke="#3db0c8" stroke-opacity=".32"/>
+                <path d="M-80,320 C170,230 280,305 500,215 C720,125 800,210 1020,140 C1140,100 1220,145 1280,120" stroke="#e0aa4e" stroke-opacity=".18"/>
+            </svg>
         </div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 py-12">
-            <div class="reveal active">
-                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-geo-900/30 border border-geo-500/15 text-geo-400 text-sm font-mono mb-6">
-                    <span class="w-1.5 h-1.5 rounded-full bg-geo-400 animate-pulse"></span>
-                    <span id="status-text">🌾 Foco em Agronegócio | LabSG UFPel | Python & PostGIS</span>
+        <div class="hero-inner">
+            <!-- Left: text -->
+            <div>
+                <div class="hero-badge">
+                    <span class="blink" aria-hidden="true"></span>
+                    python · postgis · qgis · agronegócio
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight mb-5 leading-[1.1]">
-                    Transformando dados<br>
-                    <span class="gradient-text">espaciais em decisões</span>
+                <h1 class="hero-title">
+                    Dados espaciais<br>
+                    que geram <span class="accent">decisões</span>
                 </h1>
 
-                <p class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-slate-400 mb-8 leading-relaxed">
-                    Estudante de Geoprocessamento com atuação prática no <span class="text-geo-400 font-medium">Laboratório de Soluções Geodésicas (LabSG)</span> da UFPel, 
-                    especializando em <span class="text-geo-400 font-medium">Python</span>,
-                    <span class="text-ocean-400 font-medium">Django</span>,
-                    <span class="text-geo-400 font-medium">PostGIS</span> e
-                    <span class="text-ocean-400 font-medium">análise espacial avançada</span>.
-                    <br><span class="text-geo-400 font-medium">🌾 Com foco em soluções para o Agronegócio, Meio Ambiente e Planejamento Urbano.</span>
+                <p class="hero-lead">
+                    Estudante de Geoprocessamento na <strong>UFPel</strong>, participante do <strong>LabSG</strong>.
+                    Especializando em <strong>Python</strong>, <strong>PostGIS</strong> e análise espacial com foco em
+                    soluções reais para o Agronegócio, Meio Ambiente e Planejamento Urbano.
                 </p>
 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
-                    <a href="#agro" class="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-geo-600 to-geo-500 text-white font-semibold hover:from-geo-500 hover:to-geo-400 transition-all shadow-lg shadow-geo-500/20 hover:shadow-geo-500/35 transform hover:-translate-y-0.5">
-                        <i class="fas fa-seedling group-hover:scale-110 transition-transform"></i>Ver Agro
+                <div class="hero-actions">
+                    <a href="#agro" class="btn-primary">
+                        <i class="fas fa-seedling" aria-hidden="true"></i> Projetos Agro
                     </a>
-                    <a href="#mapas" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-300 font-semibold hover:bg-slate-800 hover:border-geo-500/25 hover:text-white transition-all">
-                        <i class="fas fa-map"></i>Ver Mapas
+                    <a href="#mapas" class="btn-ghost">
+                        <i class="fas fa-map" aria-hidden="true"></i> Ver Mapas
                     </a>
-                    <a href="https://linkedin.com/in/marcosleal-cyber" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-300 font-semibold hover:bg-slate-800 hover:border-geo-500/25 hover:text-white transition-all">
-                        <i class="fab fa-linkedin text-ocean-400"></i>LinkedIn
+                    <a href="https://linkedin.com/in/marcosleal-cyber" target="_blank" rel="noopener" class="btn-ghost">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
                     </a>
                 </div>
 
-                <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-                    <div class="text-center">
-                        <div class="text-2xl lg:text-3xl font-display font-bold text-white stat-number" data-count="7">0</div>
-                        <div class="text-xs text-slate-500 mt-1 font-medium tracking-wide">Projetos</div>
+                <div class="hero-stats">
+                    <div>
+                        <span class="stat-val stat-num" data-target="7">0</span>
+                        <span class="stat-label">Projetos</span>
                     </div>
-                    <div class="text-center">
-                        <div class="text-2xl lg:text-3xl font-display font-bold text-white stat-number" data-count="9">0</div>
-                        <div class="text-xs text-slate-500 mt-1 font-medium tracking-wide">Ferramentas</div>
+                    <div>
+                        <span class="stat-val stat-num" data-target="9">0</span>
+                        <span class="stat-label">Ferramentas</span>
                     </div>
-                    <div class="text-center">
-                        <div class="text-2xl lg:text-3xl font-display font-bold text-white">3+</div>
-                        <div class="text-xs text-slate-500 mt-1 font-medium tracking-wide">Anos de Estudo</div>
+                    <div>
+                        <span class="stat-val">3+</span>
+                        <span class="stat-label">Anos de estudo</span>
                     </div>
-                    <div class="text-center">
-                        <div class="text-2xl lg:text-3xl font-display font-bold text-white stat-number" data-count="2027">0</div>
-                        <div class="text-xs text-slate-500 mt-1 font-medium tracking-wide">Formatura</div>
+                    <div>
+                        <span class="stat-val stat-num" data-target="2027">0</span>
+                        <span class="stat-label">Formatura</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: code card -->
+            <div class="hero-card reveal">
+                <div class="hero-card-header">
+                    <div class="dot-red"></div>
+                    <div class="dot-amber"></div>
+                    <div class="dot-green"></div>
+                    <span class="hero-card-title">analise_espacial.py</span>
+                </div>
+                <div class="hero-card-body">
+                    <div class="code-line"><span class="kw">import</span> geopandas <span class="kw">as</span> gpd</div>
+                    <div class="code-line"><span class="kw">from</span> shapely.geometry <span class="kw">import</span> Point</div>
+                    <div class="code-line">&nbsp;</div>
+                    <div class="code-line"><span class="cmt"># Carrega talhões agrícolas</span></div>
+                    <div class="code-line"><span class="fn">talhoes</span> = gpd.<span class="fn">read_file</span><span class="pn">(</span></div>
+                    <div class="code-line">&nbsp;&nbsp;<span class="str">"talhoes_rs.gpkg"</span><span class="pn">)</span></div>
+                    <div class="code-line">&nbsp;</div>
+                    <div class="code-line"><span class="cmt"># Filtra por município</span></div>
+                    <div class="code-line"><span class="fn">pelotas</span> = talhoes<span class="pn">[</span></div>
+                    <div class="code-line">&nbsp;&nbsp;talhoes<span class="pn">[</span><span class="str">"municipio"</span><span class="pn">]</span> == <span class="str">"Pelotas"</span></div>
+                    <div class="code-line"><span class="pn">]</span></div>
+                    <div class="coord-display">
+                        <span id="coord-lat">LAT -31.7654°</span>
+                        <span id="coord-lng">LNG -52.3376°</span>
+                        <span style="color:var(--text-dim);margin-top:4px;display:block;">EPSG:4326 · SIRGAS 2000</span>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 scroll-indicator hidden md:block">
-            <a href="#sobre" class="text-slate-600 hover:text-geo-400 transition-colors" aria-label="Rolar para a seção Sobre">
-                <i class="fas fa-chevron-down text-xl"></i>
-            </a>
-        </div>
     </section>
 
-    <!-- ========== ABOUT / LABSG ========== -->
-    <section id="sobre" class="py-16 lg:py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="reveal">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                        <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Sobre Mim & LabSG</span>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-5 leading-tight">
-                        Laboratório de Soluções<br>
-                        <span class="gradient-text">Geodésicas - LabSG</span>
-                    </h2>
-                    <div class="space-y-4 text-slate-400 text-base leading-relaxed">
-                        <p>
-                            Participei do projeto <strong>Laboratório de Soluções Geodésicas - LabSG</strong> (Centro de Engenharias - UFPel), com vigência de <strong>05/06/2025 a 5/12/2025</strong>, sob a coordenação de <strong>Alexandre Felipe Bruch</strong>.
-                        </p>
-                        <p>
-                            O posicionamento geodésico é uma técnica crucial para determinar com precisão a localização de pontos na Terra. Este projeto visa contribuir para a formação acadêmica e profissional com o desenvolvimento de metodologias de levantamentos topográficos e geodésicos, elaboração de materiais didáticos e apoio prático ao ensino de Geotecnologias.
-                        </p>
-                        <p>
-                            Atualmente aprofundando conhecimentos em <strong class="text-geo-400 font-medium">Python</strong>, <strong class="text-ocean-400 font-medium">Django</strong>, e <strong class="text-geo-400 font-medium">PostGIS</strong> para automação e gestão de dados espaciais corporativos.
-                        </p>
-                        <p class="text-geo-400/80 text-sm border-l-2 border-geo-500/30 pl-4 italic">
-                            🔍 Interesse especial em aplicar geoprocessamento em iniciativas de monitoramento territorial e financeiro, a exemplo do <strong class="text-geo-400">Projeto Geotec</strong> do Banco Central.
-                        </p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-6">
-                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-geo-900/25 border border-geo-500/15 text-geo-400 text-sm font-medium">
-                            <i class="fas fa-satellite-dish text-xs"></i>GNSS / Geodésia
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-ocean-900/25 border border-ocean-500/15 text-ocean-400 text-sm font-medium">
-                            <i class="fab fa-python text-xs"></i>Python
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-geo-900/25 border border-geo-500/15 text-geo-400 text-sm font-medium">
-                            <i class="fab fa-django text-xs"></i>Django
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-ocean-900/25 border border-ocean-500/15 text-ocean-400 text-sm font-medium">
-                            <i class="fas fa-database text-xs"></i>PostGIS
-                        </span>
-                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-geo-900/25 border border-geo-500/15 text-geo-400 text-sm font-medium">
-                            <i class="fas fa-map-marked-alt text-xs"></i>QGIS
-                        </span>
+    <!-- ===== SOBRE ===== -->
+    <section id="sobre">
+        <div class="wrap">
+            <div class="sobre-grid">
+                <div class="sobre-text reveal">
+                    <div class="section-label">sobre mim &amp; labsg</div>
+                    <h2>Laboratório de Soluções Geodésicas</h2>
+                    <br>
+                    <p>Participei do projeto <strong>LabSG</strong> (Centro de Engenharias – UFPel), com vigência de <strong>jun a dez de 2025</strong>, sob coordenação de <strong>Alexandre Felipe Bruch</strong>. O projeto foca em metodologias de levantamentos topográficos e geodésicos, materiais didáticos e apoio ao ensino de Geotecnologias.</p>
+                    <p>Aprofundando conhecimentos em <strong>Python</strong>, <strong>Django</strong> e <strong>PostGIS</strong> para automação e gestão de dados espaciais corporativos.</p>
+                   
+                    <div class="tags">
+                        <span class="tag"><i class="fas fa-satellite-dish"></i> GNSS / Geodésia</span>
+                        <span class="tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="tag"><i class="fab fa-django"></i> Django</span>
+                        <span class="tag"><i class="fas fa-database"></i> PostGIS</span>
+                        <span class="tag"><i class="fas fa-map-marked-alt"></i> QGIS</span>
                     </div>
                 </div>
 
-                <div class="reveal reveal-delay-1 relative">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-geo-500/10 to-ocean-500/10 rounded-2xl blur-2xl"></div>
-                    <div class="relative glass-card rounded-2xl p-6 border border-geo-500/8 space-y-4">
-                        <div class="flex items-start gap-4 p-3 rounded-xl bg-slate-800/30">
-                            <div class="w-10 h-10 rounded-xl bg-geo-500/10 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-graduation-cap text-geo-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm">Formação Acadêmica</h4>
-                                <p class="text-slate-400 text-sm">Tecnologia em Geoprocessamento</p>
-                                <span class="text-geo-400 text-xs font-mono">UFPel · Previsão: 2027</span>
-                            </div>
+                <div class="sobre-card reveal">
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+                        <div class="info-content">
+                            <h4>Formação</h4>
+                            <p>Tecnologia em Geoprocessamento</p>
+                            <span>UFPel · Previsão 2027</span>
                         </div>
-                        <div class="flex items-start gap-4 p-3 rounded-xl bg-ocean-500/10 border border-ocean-500/10">
-                            <div class="w-10 h-10 rounded-xl bg-ocean-500/20 flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-flask text-ocean-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-semibold text-sm">Laboratório de Soluções Geodésicas - LabSG</h4>
-                                <p class="text-slate-400 text-xs">Centro de Engenharias · UFPel</p>
-                                <span class="text-ocean-400 text-xs font-mono">5/6/2025 - 5/12/2025</span>
-                                <p class="text-slate-300 text-xs mt-1"><strong>Coordenador:</strong> Alexandre Felipe Bruch</p>
-                                <p class="text-slate-500 text-xs mt-1">Área CNPq: Ciências Exatas e da Terra</p>
-                            </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon teal"><i class="fas fa-flask" aria-hidden="true"></i></div>
+                        <div class="info-content">
+                            <h4>LabSG – UFPel</h4>
+                            <p>Centro de Engenharias · Área CNPq: Ciências Exatas e da Terra</p>
+                            <span>jun – dez 2025 · Coord. Alexandre Bruch</span>
+                        </div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon"><i class="fas fa-map-pin" aria-hidden="true"></i></div>
+                        <div class="info-content">
+                            <h4>Localização</h4>
+                            <p>Pelotas, Rio Grande do Sul</p>
+                            <span>-31.7654°, -52.3376°</span>
                         </div>
                     </div>
                 </div>
@@ -513,724 +1623,547 @@
         </div>
     </section>
 
-    <!-- ========== SKILLS ========== -->
-    <section id="skills" class="py-16 lg:py-24 relative bg-slate-900/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Stack Técnico</span>
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3">Ferramentas & Habilidades</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Competências aplicadas em projetos reais com dados abertos.</p>
-            </div>
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+        <div class="wrap">
+            <div class="section-label reveal">stack técnico</div>
+            <h2 class="reveal" style="margin-bottom:36px;">Ferramentas &amp; Habilidades</h2>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="reveal glass-card rounded-2xl p-5 hover:border-ocean-500/20 transition-all group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-ocean-500/10 flex items-center justify-center group-hover:bg-ocean-500/20 transition-colors">
-                                <i class="fab fa-python text-ocean-400"></i>
-                            </div>
-                            <span class="text-white font-semibold text-sm">Python</span>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <div class="skill-head">
+                        <div class="skill-name">
+                            <div class="skill-icon teal"><i class="fab fa-python"></i></div>
+                            Python
                         </div>
-                        <span class="text-ocean-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-ocean-500/10">Avançando</span>
+                        <span class="skill-level">avançando</span>
                     </div>
-                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
-                        <div class="skill-bar bg-gradient-to-r from-ocean-600 to-ocean-400 h-1 rounded-full" style="width:0%" data-width="65%"></div>
-                    </div>
-                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">GeoPandas, Rasterio, Folium, Pandas, Matplotlib, APIs, automação de workflows GIS.</p>
+                    <div class="skill-bar-track"><div class="skill-bar-fill teal" data-width="65"></div></div>
+                    <p class="skill-desc">GeoPandas, Rasterio, Folium, Pandas, Matplotlib, APIs, automação de workflows GIS.</p>
                 </div>
 
-                <div class="reveal reveal-delay-1 glass-card rounded-2xl p-5 hover:border-ocean-500/20 transition-all group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-ocean-500/10 flex items-center justify-center group-hover:bg-ocean-500/20 transition-colors">
-                                <i class="fas fa-database text-ocean-400"></i>
-                            </div>
-                            <span class="text-white font-semibold text-sm">SQL / PostGIS</span>
+                <div class="skill-card reveal">
+                    <div class="skill-head">
+                        <div class="skill-name">
+                            <div class="skill-icon teal"><i class="fas fa-database"></i></div>
+                            SQL / PostGIS
                         </div>
-                        <span class="text-ocean-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-ocean-500/10">Intermediário</span>
+                        <span class="skill-level">intermediário</span>
                     </div>
-                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
-                        <div class="skill-bar bg-gradient-to-r from-ocean-600 to-ocean-400 h-1 rounded-full" style="width:0%" data-width="55%"></div>
-                    </div>
-                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Consultas espaciais, ST_Within, ST_DWithin, índices GIST, modelagem de dados geoespaciais.</p>
+                    <div class="skill-bar-track"><div class="skill-bar-fill teal" data-width="55"></div></div>
+                    <p class="skill-desc">Consultas espaciais, ST_Within, ST_DWithin, índices GIST, modelagem de dados geoespaciais.</p>
                 </div>
 
-                <div class="reveal reveal-delay-2 glass-card rounded-2xl p-5 hover:border-ocean-500/20 transition-all group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-ocean-500/10 flex items-center justify-center group-hover:bg-ocean-500/20 transition-colors">
-                                <i class="fas fa-chart-bar text-ocean-400"></i>
-                            </div>
-                            <span class="text-white font-semibold text-sm">Power BI</span>
+                <div class="skill-card reveal">
+                    <div class="skill-head">
+                        <div class="skill-name">
+                            <div class="skill-icon teal"><i class="fas fa-chart-bar"></i></div>
+                            Power BI
                         </div>
-                        <span class="text-ocean-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-ocean-500/10">Avançando</span>
+                        <span class="skill-level">avançando</span>
                     </div>
-                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
-                        <div class="skill-bar bg-gradient-to-r from-ocean-600 to-ocean-400 h-1 rounded-full" style="width:0%" data-width="50%"></div>
-                    </div>
-                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Dashboards executivos, DAX, Power Query, mapas coropléticos, integração com dados espaciais.</p>
+                    <div class="skill-bar-track"><div class="skill-bar-fill teal" data-width="50"></div></div>
+                    <p class="skill-desc">Dashboards executivos, DAX, Power Query, mapas coropléticos, integração com dados espaciais.</p>
                 </div>
 
-                <div class="reveal glass-card rounded-2xl p-5 hover:border-geo-500/20 transition-all group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-geo-500/10 flex items-center justify-center group-hover:bg-geo-500/20 transition-colors">
-                                <i class="fas fa-map-marked-alt text-geo-400"></i>
-                            </div>
-                            <span class="text-white font-semibold text-sm">QGIS</span>
+                <div class="skill-card reveal">
+                    <div class="skill-head">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fas fa-map-marked-alt"></i></div>
+                            QGIS
                         </div>
-                        <span class="text-geo-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-geo-500/10">Intermediário</span>
+                        <span class="skill-level">intermediário</span>
                     </div>
-                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
-                        <div class="skill-bar bg-gradient-to-r from-geo-600 to-geo-400 h-1 rounded-full" style="width:0%" data-width="70%"></div>
-                    </div>
-                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Análise espacial, Model Builder, processamento de raster, simbologia avançada.</p>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="70"></div></div>
+                    <p class="skill-desc">Análise espacial, Model Builder, processamento de raster, simbologia avançada.</p>
                 </div>
 
-                <div class="reveal reveal-delay-1 glass-card rounded-2xl p-5 hover:border-geo-500/20 transition-all group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-geo-500/10 flex items-center justify-center group-hover:bg-geo-500/20 transition-colors">
-                                <i class="fab fa-django text-geo-400"></i>
-                            </div>
-                            <span class="text-white font-semibold text-sm">Django</span>
+                <div class="skill-card reveal">
+                    <div class="skill-head">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fab fa-django"></i></div>
+                            Django
                         </div>
-                        <span class="text-geo-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-geo-500/10">Avançando</span>
+                        <span class="skill-level">avançando</span>
                     </div>
-                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
-                        <div class="skill-bar bg-gradient-to-r from-geo-600 to-geo-400 h-1 rounded-full" style="width:0%" data-width="60%"></div>
-                    </div>
-                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">Django Core, GeoDjango, DRF, autenticação, APIs REST, integração com PostGIS.</p>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="60"></div></div>
+                    <p class="skill-desc">Django Core, GeoDjango, DRF, autenticação, APIs REST, integração com PostGIS.</p>
                 </div>
 
-                <div class="reveal reveal-delay-2 glass-card rounded-2xl p-5 hover:border-geo-500/20 transition-all group">
-                    <div class="flex items-center justify-between mb-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-lg bg-geo-500/10 flex items-center justify-center group-hover:bg-geo-500/20 transition-colors">
-                                <i class="fas fa-satellite-dish text-geo-400"></i>
-                            </div>
-                            <span class="text-white font-semibold text-sm">Geodésia & GNSS</span>
+                <div class="skill-card reveal">
+                    <div class="skill-head">
+                        <div class="skill-name">
+                            <div class="skill-icon"><i class="fas fa-satellite-dish"></i></div>
+                            Geodésia &amp; GNSS
                         </div>
-                        <span class="text-geo-400 font-mono text-[10px] font-medium px-2 py-0.5 rounded bg-geo-500/10">LabSG</span>
+                        <span class="skill-level">LabSG</span>
                     </div>
-                    <div class="w-full bg-slate-800 rounded-full h-1 overflow-hidden">
-                        <div class="skill-bar bg-gradient-to-r from-geo-600 to-geo-400 h-1 rounded-full" style="width:0%" data-width="75%"></div>
-                    </div>
-                    <p class="text-slate-500 text-xs mt-2.5 leading-relaxed">GNSS, estações totais, processamento de dados geodésicos, relatórios técnicos.</p>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+                    <p class="skill-desc">GNSS, estações totais, processamento de dados geodésicos, relatórios técnicos.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== AGRO ========== -->
-    <section id="agro" class="py-16 lg:py-24 relative bg-geo-900/10 border-y border-geo-500/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">🌾 Nicho</span>
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3">Soluções para o Agro</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Projetos que aplicam geoprocessamento e análise de dados no agronegócio.</p>
-            </div>
+    <!-- ===== AGRO ===== -->
+    <section id="agro" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+        <div class="wrap">
+            <div class="section-label reveal">nicho principal</div>
+            <h2 class="reveal" style="margin-bottom:36px;">Soluções para o Agro</h2>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="reveal project-card glass-card rounded-2xl overflow-hidden border border-ocean-500/20 bg-ocean-900/5">
-                    <div class="h-36 bg-gradient-to-br from-ocean-900/50 to-ocean-700/15 flex items-center justify-center border-b border-ocean-500/8 relative">
-                        <i class="fas fa-satellite text-4xl text-ocean-400/40"></i>
-                        <div class="absolute top-3 right-3 status-badge status-badge-geotec text-[10px]">
-                            <i class="fas fa-code text-[9px]"></i> Em dev
+            <div class="projects-grid">
+                <!-- Card 1: Monitoramento desmatamento -->
+                <div class="proj-card reveal">
+                    <div class="proj-thumb teal">
+                        <i class="fas fa-satellite" aria-hidden="true"></i>
+                        <div class="badge dev"><i class="fas fa-code"></i> Em desenvolvimento</div>
+                    </div>
+                    <div class="proj-body">
+                        <div class="proj-title">Monitoramento de Desmatamento</div>
+                        <p class="proj-desc">Análise de supressão vegetal com dados PRODES e MapBiomas, integrado a dashboard Power BI para acompanhamento em tempo real.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Python</span>
+                            <span class="ptag">Power BI</span>
+                            <span class="ptag">PostGIS</span>
+                            <span class="ptag">PRODES</span>
                         </div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Monitoramento Geo-Financeiro do Crédito Rural</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">
-                            Projeto inspirado no <strong class="text-ocean-400">Projeto Geotec (BCB)</strong>. 
-                            Cruzamento de dados de financiamento e sensoriamento remoto para análise de riscos.
-                        </p>
-                        <div class="flex flex-wrap gap-1">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Python</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Power BI</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">PostGIS</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">PRODES</span>
-                        </div>
+                    <div class="proj-footer">
+                        <span class="proj-meta">🌍 Meio Ambiente &amp; Agro</span>
                     </div>
                 </div>
 
-                <div class="reveal reveal-delay-1 project-card glass-card rounded-2xl overflow-hidden border border-geo-500/20 bg-geo-900/5">
-                    <div class="h-36 bg-gradient-to-br from-geo-900/50 to-geo-700/15 flex items-center justify-center border-b border-geo-500/8 relative">
-                        <i class="fas fa-seedling text-4xl text-geo-400/40"></i>
-                        <div class="absolute top-3 right-3 status-badge status-badge-future text-[10px]">
-                            <i class="fas fa-clock text-[9px]"></i> Em breve
+                <!-- Card 2: Produtividade -->
+                <div class="proj-card reveal">
+                    <div class="proj-thumb">
+                        <i class="fas fa-seedling" aria-hidden="true"></i>
+                        <div class="badge soon"><i class="fas fa-clock"></i> Em breve</div>
+                    </div>
+                    <div class="proj-body">
+                        <div class="proj-title">Produtividade por Talhão</div>
+                        <p class="proj-desc">Cruzamento de dados de solo, clima e produtividade para identificar áreas críticas e recomendar intervenções de precisão.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">QGIS</span>
+                            <span class="ptag">PostGIS</span>
+                            <span class="ptag">Python</span>
                         </div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Análise de Produtividade por Talhão</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Cruzamento de dados de solo, clima e produtividade para identificar áreas críticas.</p>
-                        <div class="flex flex-wrap gap-1">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">QGIS</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">PostGIS</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Python</span>
-                        </div>
+                    <div class="proj-footer">
+                        <span class="proj-meta">🌾 Agricultura de Precisão</span>
                     </div>
                 </div>
 
-                <div class="reveal reveal-delay-2 project-card glass-card rounded-2xl overflow-hidden border border-geo-500/20 bg-geo-900/5">
-                    <div class="h-36 bg-gradient-to-br from-geo-900/50 to-geo-700/15 flex items-center justify-center border-b border-geo-500/8 relative">
-                        <i class="fas fa-chart-line text-4xl text-geo-400/30"></i>
-                        <div class="absolute top-3 right-3 status-badge status-badge-future text-[10px]">
-                            <i class="fas fa-clock text-[9px]"></i> Em breve
+                <!-- Card 3: Dashboard -->
+                <div class="proj-card reveal">
+                    <div class="proj-thumb">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        <div class="badge soon"><i class="fas fa-clock"></i> Em breve</div>
+                    </div>
+                    <div class="proj-body">
+                        <div class="proj-title">Dashboard de Gestão Agrícola</div>
+                        <p class="proj-desc">Power BI com KPIs de produtividade, área plantada, insumos e projeções de safra integrando dados geoespaciais.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Power BI</span>
+                            <span class="ptag">DAX</span>
+                            <span class="ptag">SQL</span>
                         </div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Dashboard de Gestão Agrícola</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Power BI com KPIs de produtividade, área plantada, insumos e projeções.</p>
-                        <div class="flex flex-wrap gap-1">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Power BI</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">DAX</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">SQL</span>
-                        </div>
+                    <div class="proj-footer">
+                        <span class="proj-meta">📊 BI Territorial</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== MAPAS (Catálogo Profissional) ========== -->
-    <section id="mapas" class="py-16 lg:py-24 relative bg-slate-900/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Catálogo</span>
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3">Mapas Profissionais</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Galeria de produtos cartográficos desenvolvidos com dados abertos e ferramentas GIS.</p>
+    <!-- ===== MAPAS ===== -->
+    <section id="mapas">
+        <div class="wrap">
+            <div class="section-label reveal">catálogo</div>
+            <h2 class="reveal" style="margin-bottom:8px;">Mapas Profissionais</h2>
+            <p class="reveal" style="color:var(--text-dim);margin-bottom:32px;">Galeria de produtos cartográficos desenvolvidos com dados abertos e ferramentas GIS.</p>
+
+            <div class="filter-row reveal">
+                <button class="fbtn active" data-filter="all">Todos</button>
+                <button class="fbtn" data-filter="agro">Agro</button>
+                <button class="fbtn" data-filter="ambiental">Ambiental</button>
+                <button class="fbtn" data-filter="urbano">Urbano</button>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-2 mb-10 reveal">
-                <button class="filter-btn active px-4 py-1.5 rounded-full bg-geo-600/15 border border-geo-500/20 text-geo-400 text-xs font-medium hover:bg-geo-600/25 transition-colors" data-filter="all">Todos</button>
-                <button class="filter-btn px-4 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-400 text-xs font-medium hover:bg-slate-800 hover:border-geo-500/25 transition-colors" data-filter="agro">Agro</button>
-                <button class="filter-btn px-4 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-400 text-xs font-medium hover:bg-slate-800 hover:border-geo-500/25 transition-colors" data-filter="ambiental">Ambiental</button>
-                <button class="filter-btn px-4 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-400 text-xs font-medium hover:bg-slate-800 hover:border-geo-500/25 transition-colors" data-filter="urbano">Urbano</button>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="mapas-grid">
-                
-                <!-- MAPA 1: Uso e Cobertura -->
-                <div class="reveal project-card glass-card rounded-2xl overflow-hidden border border-geo-500/20 bg-geo-900/5" data-category="ambiental agro">
-                    <div class="h-48 bg-slate-900 flex items-center justify-center border-b border-geo-500/8 relative overflow-hidden group">
-                        <img src="mapa-uso-cobertura.jpg" alt="Mapa de Uso e Cobertura da Terra" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230f172a%22/><text y=%2255%22 x=%2235%22 fill=%22%234ade80%22 font-size=%2220%22>🗺️</text></svg>'" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60"></div>
-                        <div class="absolute top-3 right-3 status-badge status-badge-done text-[10px]">
-                            <i class="fas fa-check-circle text-[9px]"></i> Em dev
-                        </div>
+            <div class="projects-grid" id="mapas-grid">
+                <!-- Mapa 1 -->
+                <div class="map-card reveal" data-category="ambiental agro">
+                    <div class="map-thumb">
+                        <img src="mapa-uso-cobertura.jpg" alt="Mapa de Uso e Cobertura da Terra"
+                             onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>🗺️</div>'" />
+                        <div class="badge done"><i class="fas fa-code"></i> Em dev</div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Mapeamento de Uso e Cobertura da Terra</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Classificação supervisionada e análise de transição de paisagem utilizando dados do MapBiomas e QGIS.</p>
-                        <div class="flex flex-wrap gap-1 mb-3">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">MapBiomas</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">QGIS</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Raster</span>
+                    <div class="map-body">
+                        <div class="map-title">Mapeamento de Uso e Cobertura da Terra</div>
+                        <p class="map-desc">Classificação supervisionada e análise de transição de paisagem com dados MapBiomas e QGIS.</p>
+                        <div class="proj-tags" style="margin-bottom:14px;">
+                            <span class="ptag">MapBiomas</span>
+                            <span class="ptag">QGIS</span>
+                            <span class="ptag">Raster</span>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] text-slate-500">🌍 Meio Ambiente & Agro</span>
-                            <a href="seu-pdf-de-uso.pdf" target="_blank" class="text-geo-400 hover:text-geo-300 text-xs font-medium transition-colors">
-                                Ver PDF <i class="fas fa-external-link-alt text-[10px]"></i>
-                            </a>
+                        <div class="map-footer">
+                            <span class="map-meta">🌍 Meio Ambiente &amp; Agro</span>
+                            <a href="seu-pdf-de-uso.pdf" target="_blank" rel="noopener" class="proj-link">Ver PDF <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- MAPA 2: NDVI -->
-                <div class="reveal reveal-delay-1 project-card glass-card rounded-2xl overflow-hidden border border-ocean-500/20 bg-ocean-900/5" data-category="agro">
-                    <div class="h-48 bg-slate-900 flex items-center justify-center border-b border-ocean-500/8 relative overflow-hidden group">
-                        <img src="mapa-ndvi.jpg" alt="Mapa de NDVI" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230f172a%22/><text y=%2255%22 x=%2235%22 fill=%22%2338bdf8%22 font-size=%2220%22>🌾</text></svg>'" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60"></div>
-                        <div class="absolute top-3 right-3 status-badge status-badge-done text-[10px]">
-                            <i class="fas fa-check-circle text-[9px]"></i> Em dev
-                        </div>
+                <!-- Mapa 2 -->
+                <div class="map-card reveal" data-category="agro">
+                    <div class="map-thumb">
+                        <img src="mapa-ndvi.jpg" alt="Mapa de NDVI por safra"
+                             onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>🌾</div>'" />
+                        <div class="badge done"><i class="fas fa-code"></i> Em dev</div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Índice de Vegetação (NDVI) por Safra</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Análise de vigor vegetativo e saúde da cultura através de imagens de satélite Sentinel-2.</p>
-                        <div class="flex flex-wrap gap-1 mb-3">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Sentinel-2</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Banda 4 e 8</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Agricultura</span>
+                    <div class="map-body">
+                        <div class="map-title">Índice de Vegetação (NDVI) por Safra</div>
+                        <p class="map-desc">Análise de vigor vegetativo e saúde da cultura com imagens Sentinel-2, bandas 4 e 8.</p>
+                        <div class="proj-tags" style="margin-bottom:14px;">
+                            <span class="ptag">Sentinel-2</span>
+                            <span class="ptag">Banda 4 e 8</span>
+                            <span class="ptag">Agricultura</span>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] text-slate-500">🌱 Agricultura de Precisão</span>
-                            <a href="seu-pdf-ndvi.pdf" target="_blank" class="text-ocean-400 hover:text-ocean-300 text-xs font-medium transition-colors">
-                                Ver PDF <i class="fas fa-external-link-alt text-[10px]"></i>
-                            </a>
+                        <div class="map-footer">
+                            <span class="map-meta">🌱 Agricultura de Precisão</span>
+                            <a href="seu-pdf-ndvi.pdf" target="_blank" rel="noopener" class="proj-link teal">Ver PDF <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a>
                         </div>
                     </div>
                 </div>
 
-             
-               <!-- MAPA 3: Biomas -->
-<div class="reveal reveal-delay-2 project-card glass-card rounded-2xl overflow-hidden border border-geo-500/20 bg-geo-900/5" data-category="ambiental">
-    <div class="h-48 bg-slate-900 flex items-center justify-center border-b border-geo-500/8 relative overflow-hidden group">
-        <!-- Caminho da imagem em minúsculas e com a extensão correta -->
-        <img src="biomas.png" alt="Mapa de Biomas do Brasil" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230f172a%22/><text y=%2255%22 x=%2235%22 fill=%22%234ade80%22 font-size=%2220%22>🌳</text></svg>'" />
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60"></div>
-        <div class="absolute top-3 right-3 status-badge status-badge-done text-[10px]">
-            <i class="fas fa-check-circle text-[9px]"></i> Disponível
-        </div>
-    </div>
-    <div class="p-5">
-        <h4 class="text-white font-semibold text-base mb-1.5">Biomas do Brasil</h4>
-        <p class="text-slate-400 text-xs leading-relaxed mb-3">Mapa temático com a distribuição dos biomas continentais brasileiros e limites estaduais.</p>
-        <div class="flex flex-wrap gap-1 mb-3">
-            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">MMA/IBGE</span>
-            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">QGIS</span>
-            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Cartografia Temática</span>
-        </div>
-        <div class="flex items-center justify-between">
-            <span class="text-[10px] text-slate-500">📊 Gestão Ambiental</span>
-            <!-- Link sem espaço e com rel de segurança -->
-            <a href="mapa-biomas.pdf" target="_blank" rel="noopener noreferrer" class="text-geo-400 hover:text-geo-300 text-xs font-medium transition-colors inline-flex items-center gap-1">
-                Ver PDF <i class="fas fa-external-link-alt text-[10px]"></i>
-            </a>
-        </div>
-    </div>
-</div>
-
-                <!-- MAPA 4: Porto de Pelotas -->
-                <div class="reveal project-card glass-card rounded-2xl overflow-hidden border border-geo-500/20 bg-geo-900/5" data-category="urbano">
-                    <div class="h-48 bg-slate-900 flex items-center justify-center border-b border-geo-500/8 relative overflow-hidden group">
-                        <img src="Ortomosaico.jpg" alt="Projeto Cartográfico do Porto de Pelotas — ortomosaico QGIS" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-4xl\'>🏙️</div>'" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60"></div>
-                        <div class="absolute top-3 right-3 status-badge status-badge-done text-[10px]">
-                            <i class="fas fa-check-circle text-[9px]"></i> Disponível
-                        </div>
+                <!-- Mapa 3 -->
+                <div class="map-card reveal" data-category="ambiental">
+                    <div class="map-thumb">
+                        <img src="biomas.png" alt="Mapa de Biomas do Brasil"
+                             onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>🌳</div>'" />
+                        <div class="badge done"><i class="fas fa-check-circle"></i> Disponível</div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Projeto Cartográfico do Porto de Pelotas</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Mapeamento cadastral urbano detalhado, com classificação de lotes, praças e edificações. Projeto acadêmico LabSG / UFPel.</p>
-                        <div class="flex flex-wrap gap-1 mb-3">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">QGIS</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Layout</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">SIRGAS 2000</span>
+                    <div class="map-body">
+                        <div class="map-title">Biomas do Brasil</div>
+                        <p class="map-desc">Mapa temático com a distribuição dos biomas continentais brasileiros e limites estaduais.</p>
+                        <div class="proj-tags" style="margin-bottom:14px;">
+                            <span class="ptag">MMA/IBGE</span>
+                            <span class="ptag">QGIS</span>
+                            <span class="ptag">Cartografia Temática</span>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] text-slate-500">🏙️ Planejamento Urbano</span>
-                            <a href="Projeto%20Cartogr%C3%A1fico%20final.pdf" target="_blank" class="text-geo-400 hover:text-geo-300 text-xs font-medium transition-colors">
-                                Ver PDF <i class="fas fa-external-link-alt text-[10px]"></i>
-                            </a>
+                        <div class="map-footer">
+                            <span class="map-meta">📊 Gestão Ambiental</span>
+                            <a href="mapa-biomas.pdf" target="_blank" rel="noopener noreferrer" class="proj-link">Ver PDF <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Mapa 4 -->
+                <div class="map-card reveal" data-category="urbano">
+                    <div class="map-thumb">
+                        <img src="Ortomosaico.jpg" alt="Projeto Cartográfico do Porto de Pelotas"
+                             loading="lazy" decoding="async"
+                             onerror="this.parentElement.innerHTML='<div class=\'placeholder\'>🏙️</div>'" />
+                        <div class="badge done"><i class="fas fa-check-circle"></i> Disponível</div>
+                    </div>
+                    <div class="map-body">
+                        <div class="map-title">Projeto Cartográfico — Porto de Pelotas</div>
+                        <p class="map-desc">Mapeamento cadastral urbano com classificação de lotes, praças e edificações. Projeto LabSG / UFPel.</p>
+                        <div class="proj-tags" style="margin-bottom:14px;">
+                            <span class="ptag">QGIS</span>
+                            <span class="ptag">Layout</span>
+                            <span class="ptag">SIRGAS 2000</span>
+                        </div>
+                        <div class="map-footer">
+                            <span class="map-meta">🏙️ Planejamento Urbano</span>
+                            <a href="Projeto%20Cartogr%C3%A1fico%20final.pdf" target="_blank" rel="noopener" class="proj-link">Ver PDF <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== PROJETOS ========== -->
-    <section id="projetos" class="py-16 lg:py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Portfólio</span>
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3">Projetos em Destaque</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Soluções geoespaciais construídas com dados abertos e tecnologias modernas.</p>
-            </div>
+    <!-- ===== PROJETOS ===== -->
+    <section id="projetos" style="background:var(--bg2);border-top:1px solid var(--border);">
+        <div class="wrap">
+            <div class="section-label reveal">portfólio</div>
+            <h2 class="reveal" style="margin-bottom:36px;">Projetos em Destaque</h2>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="reveal project-card glass-card rounded-2xl overflow-hidden border border-slate-800/50">
-                    <div class="h-36 bg-gradient-to-br from-geo-900/50 to-geo-700/15 flex items-center justify-center border-b border-geo-500/8 relative">
-                        <i class="fas fa-globe text-4xl text-geo-400/40"></i>
-                        <div class="absolute top-3 right-3 status-badge status-badge-done text-[10px]">
-                            <i class="fas fa-check-circle text-[9px]"></i> Finalizado
+            <div class="projects-grid">
+                <!-- Projeto 1 -->
+                <div class="proj-card reveal">
+                    <div class="proj-thumb">
+                        <i class="fas fa-globe" aria-hidden="true"></i>
+                        <div class="badge done"><i class="fas fa-check-circle"></i> Finalizado</div>
+                    </div>
+                    <div class="proj-body">
+                        <div class="proj-title">Back-end Django de Geolocalização</div>
+                        <p class="proj-desc">Microsserviço com GeoIP2, API REST e SQLite. Identifica localização de requisições em tempo real.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Django</span>
+                            <span class="ptag">GeoIP2</span>
+                            <span class="ptag">API REST</span>
                         </div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Back-end Django de Geolocalização</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Microsserviço com GeoIP, API REST e SQLite.</p>
-                        <div class="flex flex-wrap gap-1 mb-3.5">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Django</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">GeoIP</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">API</span>
-                        </div>
-                        <a href="https://github.com/cursoctl/geolocalizacao" target="_blank" class="inline-flex items-center gap-1.5 text-geo-400 hover:text-geo-300 text-sm font-medium transition-colors group">
-                            Ver no GitHub <i class="fas fa-arrow-right text-xs group-hover:translate-x-0.5 transition-transform"></i>
+                    <div class="proj-footer">
+                        <span class="proj-meta"></span>
+                        <a href="https://github.com/cursoctl/geolocalizacao" target="_blank" rel="noopener" class="proj-link">
+                            <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
                 </div>
 
-                <div class="reveal reveal-delay-1 project-card glass-card rounded-2xl overflow-hidden border border-slate-800/50">
-                    <div class="h-36 bg-gradient-to-br from-ocean-900/50 to-ocean-700/15 flex items-center justify-center border-b border-ocean-500/8 relative">
-                        <i class="fas fa-school text-4xl text-ocean-400/30"></i>
-                        <div class="absolute top-3 right-3 status-badge status-badge-done text-[10px]">
-                            <i class="fas fa-check-circle text-[9px]"></i> Finalizado
+                <!-- Projeto 2 -->
+                <div class="proj-card reveal">
+                    <div class="proj-thumb teal">
+                        <i class="fas fa-school" aria-hidden="true"></i>
+                        <div class="badge done"><i class="fas fa-check-circle"></i> Finalizado</div>
+                    </div>
+                    <div class="proj-body">
+                        <div class="proj-title">Análise de Equidade Espacial</div>
+                        <p class="proj-desc">Pipeline com Python, GeoPandas e OSMnx para análise de acesso a equipamentos públicos.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">Python</span>
+                            <span class="ptag">GeoPandas</span>
+                            <span class="ptag">OSMnx</span>
                         </div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Análise de Equidade Espacial</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Pipeline com Python, GeoPandas e OSMnx.</p>
-                        <div class="flex flex-wrap gap-1 mb-3.5">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Python</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">GeoPandas</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">OSMnx</span>
-                        </div>
-                        <a href="https://github.com/cursoctl/analise-equidade-espacial" target="_blank" class="inline-flex items-center gap-1.5 text-ocean-400 hover:text-ocean-300 text-sm font-medium transition-colors group">
-                            Ver no GitHub <i class="fas fa-arrow-right text-xs group-hover:translate-x-0.5 transition-transform"></i>
+                    <div class="proj-footer">
+                        <span class="proj-meta"></span>
+                        <a href="https://github.com/cursoctl/analise-equidade-espacial" target="_blank" rel="noopener" class="proj-link teal">
+                            <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
                 </div>
 
-                <div class="reveal reveal-delay-2 project-card glass-card rounded-2xl overflow-hidden border border-ocean-500/20 bg-ocean-900/5">
-                    <div class="h-36 bg-gradient-to-br from-ocean-900/50 to-ocean-700/15 flex items-center justify-center border-b border-ocean-500/8 relative">
-                        <i class="fas fa-satellite-dish text-4xl text-ocean-400/40"></i>
-                        <div class="absolute top-3 right-3 status-badge status-badge-geotec text-[10px]">
-                            <i class="fas fa-code text-[9px]"></i> Em dev
+                <!-- Projeto 3 -->
+                <div class="proj-card reveal">
+                    <div class="proj-thumb teal">
+                        <i class="fas fa-satellite-dish" aria-hidden="true"></i>
+                        <div class="badge dev"><i class="fas fa-code"></i> Em desenvolvimento</div>
+                    </div>
+                    <div class="proj-body">
+                        <div class="proj-title">Monitoramento Territorial com PostGIS</div>
+                        <p class="proj-desc">Integração de dados SICAR, MapBiomas e PRODES para detecção de irregularidades territoriais em áreas rurais.</p>
+                        <div class="proj-tags">
+                            <span class="ptag">PostGIS</span>
+                            <span class="ptag">Python</span>
+                            <span class="ptag">SICAR</span>
+                            <span class="ptag">MapBiomas</span>
                         </div>
                     </div>
-                    <div class="p-5">
-                        <h4 class="text-white font-semibold text-base mb-1.5">Monitoramento Geo-Financeiro (Geotec)</h4>
-                        <p class="text-slate-400 text-xs leading-relaxed mb-3">Dashboard com cruzamento de crédito rural e dados ambientais, inspirado no <strong class="text-ocean-400">Projeto Geotec (BCB)</strong>.</p>
-                        <div class="flex flex-wrap gap-1 mb-3.5">
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Python</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">Power BI</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">PostGIS</span>
-                            <span class="text-[9px] px-2 py-0.5 rounded bg-slate-800/80 text-slate-400">PRODES</span>
-                        </div>
-                        <span class="text-slate-500 text-[10px] inline-flex items-center gap-1.5">
-                            🔗 <a href="https://www.bcb.gov.br/estabilidadefinanceira/projeto-geotec" target="_blank" class="text-ocean-400 hover:underline">Referência: Projeto Geotec</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-10 reveal">
-                <a href="https://github.com/cursoctl?tab=repositories" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-300 hover:bg-slate-800 hover:border-geo-500/25 hover:text-white transition-all font-medium text-sm">
-                    <i class="fab fa-github"></i>Ver todos os repositórios
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== ROADMAP ========== -->
-    <section id="roadmap" class="py-16 lg:py-24 relative bg-slate-900/20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Trajetória</span>
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-3">Roadmap até a Formatura</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Plano de execução dos projetos e evolução das skills até 2027.</p>
-            </div>
-
-            <div class="relative">
-                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-geo-500/30 via-ocean-500/30 to-geo-500/10 md:-translate-x-px"></div>
                 
-                <div class="space-y-8">
-                    <div class="reveal relative flex items-start md:items-center gap-4 md:gap-0">
-                        <div class="hidden md:block w-1/2 pr-12 text-right">
-                            <h4 class="text-white font-semibold text-base">🛰️ LabSG - UFPel</h4>
-                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Jun–Dez 2025</p>
-                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Laboratório de Soluções Geodésicas, GNSS, levantamentos e materiais didáticos.</p>
-                        </div>
-                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-geo-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
-                        <div class="pl-11 md:pl-12 md:w-1/2">
-                            <div class="md:hidden mb-1.5">
-                                <h4 class="text-white font-semibold text-base">🛰️ LabSG - UFPel</h4>
-                                <p class="text-ocean-400 text-xs font-mono">Jun–Dez 2025</p>
-                            </div>
-                            <div class="glass-card rounded-xl p-3.5 border border-geo-500/8">
-                                <div class="flex flex-wrap gap-1.5">
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">GNSS</span>
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">Topografia</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="reveal reveal-delay-1 relative flex items-start md:items-center gap-4 md:gap-0">
-                        <div class="pl-11 md:pl-0 md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
-                            <div class="md:hidden mb-1.5">
-                                <h4 class="text-white font-semibold text-base">✅ Django Geolocalização</h4>
-                                <p class="text-ocean-400 text-xs font-mono">Nov/2026</p>
-                            </div>
-                            <div class="glass-card rounded-xl p-3.5 border border-geo-500/8 bg-geo-500/5">
-                                <div class="flex flex-wrap gap-1.5 justify-end">
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">Django</span>
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">GeoIP</span>
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">API</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-geo-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
-                        <div class="hidden md:block md:w-1/2 md:pl-12 order-1 md:order-2">
-                            <h4 class="text-white font-semibold text-base">✅ Django Geolocalização</h4>
-                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Nov/2026</p>
-                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Microsserviço com GeoIP2 e API REST. <span class="text-geo-400 font-medium">Finalizado!</span></p>
-                        </div>
-                    </div>
+    <!-- ===== ROADMAP ===== -->
+    <section id="roadmap">
+        <div class="wrap">
+            <div class="section-label reveal">trajetória</div>
+            <h2 class="reveal" style="margin-bottom:48px;">Roadmap até a Formatura</h2>
 
-                    <div class="reveal reveal-delay-2 relative flex items-start md:items-center gap-4 md:gap-0">
-                        <div class="hidden md:block w-1/2 pr-12 text-right">
-                            <h4 class="text-white font-semibold text-base">✅ Equidade Espacial</h4>
-                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Nov/2026</p>
-                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Pipeline com Python e GeoPandas. <span class="text-geo-400 font-medium">Finalizado!</span></p>
-                        </div>
-                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-geo-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
-                        <div class="pl-11 md:pl-12 md:w-1/2">
-                            <div class="md:hidden mb-1.5">
-                                <h4 class="text-white font-semibold text-base">✅ Equidade Espacial</h4>
-                                <p class="text-ocean-400 text-xs font-mono">Nov/2026</p>
-                            </div>
-                            <div class="glass-card rounded-xl p-3.5 border border-geo-500/8 bg-geo-500/5">
-                                <div class="flex flex-wrap gap-1.5">
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">GeoPandas</span>
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-geo-900/25 text-geo-400">OSMnx</span>
-                                </div>
-                            </div>
-                        </div>
+            <div class="timeline">
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-period">jun – dez 2025</div>
+                    <div class="tl-title">LabSG – UFPel</div>
+                    <p class="tl-desc">Laboratório de Soluções Geodésicas. Levantamentos com GNSS e estações totais, desenvolvimento de materiais didáticos de geotecnologias.</p>
+                    <div class="tl-tags">
+                        <span class="tl-tag hi">GNSS</span>
+                        <span class="tl-tag hi">Topografia</span>
+                        <span class="tl-tag">UFPel</span>
                     </div>
+                </div>
 
-                    <div class="reveal reveal-delay-3 relative flex items-start md:items-center gap-4 md:gap-0">
-                        <div class="hidden md:block w-1/2 pr-12 text-right">
-                            <h4 class="text-white font-semibold text-base">🛰️ Projeto Geotec (BCB)</h4>
-                            <p class="text-ocean-400 text-xs font-mono mt-0.5">Em andamento</p>
-                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Estudo e aplicação inspirada no projeto do BC.</p>
-                        </div>
-                        <div class="absolute left-4 md:left-1/2 w-3.5 h-3.5 rounded-full bg-ocean-500 border-3 border-slate-950 timeline-dot md:-translate-x-1.5 z-10"></div>
-                        <div class="pl-11 md:pl-12 md:w-1/2">
-                            <div class="md:hidden mb-1.5">
-                                <h4 class="text-white font-semibold text-base">🛰️ Projeto Geotec (BCB)</h4>
-                                <p class="text-ocean-400 text-xs font-mono">Em andamento</p>
-                            </div>
-                            <div class="glass-card rounded-xl p-3.5 border border-ocean-500/8 bg-ocean-500/5">
-                                <div class="flex flex-wrap gap-1.5">
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">Monitoramento</span>
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-ocean-900/25 text-ocean-400">Crédito Rural</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-period">nov 2026</div>
+                    <div class="tl-title">✅ Django Geolocalização — Finalizado</div>
+                    <p class="tl-desc">Microsserviço com GeoIP2 e API REST para identificação geográfica de requisições.</p>
+                    <div class="tl-tags">
+                        <span class="tl-tag hi">Django</span>
+                        <span class="tl-tag hi">GeoIP2</span>
+                        <span class="tl-tag">API</span>
                     </div>
+                </div>
 
-                    <div class="reveal relative flex items-start md:items-center gap-4 md:gap-0">
-                        <div class="pl-11 md:pl-0 md:w-1/2 md:pr-12 md:text-right order-2 md:order-1">
-                            <div class="md:hidden mb-1.5">
-                                <h4 class="text-white font-semibold text-base">🎓 Formatura</h4>
-                                <p class="text-ocean-400 text-xs font-mono">2027</p>
-                            </div>
-                            <div class="glass-card rounded-xl p-3.5 border border-ocean-500/8 bg-ocean-500/5">
-                                <p class="text-ocean-400 text-xs font-medium">🎯 Portfólio completo · GitHub ativo</p>
-                            </div>
-                        </div>
-                        <div class="absolute left-4 md:left-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-geo-400 to-ocean-400 border-3 border-slate-950 md:-translate-x-2 z-10"></div>
-                        <div class="hidden md:block md:w-1/2 md:pl-12 order-1 md:order-2">
-                            <h4 class="text-white font-semibold text-base">🎓 Formatura</h4>
-                            <p class="text-ocean-400 text-xs font-mono mt-0.5">2027</p>
-                            <p class="text-slate-400 text-sm mt-1.5 leading-relaxed">Tecnologia em Geoprocessamento - UFPel.</p>
-                        </div>
+                <div class="tl-item reveal">
+                    <div class="tl-dot"></div>
+                    <div class="tl-period">nov 2026</div>
+                    <div class="tl-title">✅ Análise de Equidade Espacial — Finalizado</div>
+                    <p class="tl-desc">Pipeline completo com Python e GeoPandas para acesso a equipamentos públicos.</p>
+                    <div class="tl-tags">
+                        <span class="tl-tag hi">GeoPandas</span>
+                        <span class="tl-tag hi">OSMnx</span>
+                        <span class="tl-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="tl-item reveal">
+                    <div class="tl-dot future"></div>
+                    <div class="tl-period">2027</div>
+                    <div class="tl-title">🎓 Formatura — Tecnologia em Geoprocessamento</div>
+                    <p class="tl-desc">Conclusão do curso na UFPel.</p>
+                    <div class="tl-tags">
+                        <span class="tl-tag">Portfólio completo</span>
+                        <span class="tl-tag">GitHub ativo</span>
+                        <span class="tl-tag">UFPel</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CONTATO ========== -->
-    <section id="contato" class="py-16 lg:py-24 relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="reveal">
-                <div class="flex items-center justify-center gap-3 mb-4">
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                    <span class="text-geo-400 font-mono text-xs tracking-wider uppercase font-medium">Contato</span>
-                    <span class="w-6 h-0.5 bg-geo-400/50"></span>
-                </div>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-4">
-                    Vamos <span class="gradient-text">mapear</span> algo juntos?
-                </h2>
-                <p class="text-slate-400 max-w-xl mx-auto text-base leading-relaxed mb-8">
-                    Aberto a <span class="text-geo-400 font-medium">oportunidades profissionais</span> 
-                    em análise espacial, engenharia de dados geoespaciais e desenvolvimento GIS.
-                    <br><span class="text-geo-400 font-medium">🌾 Especial interesse em projetos para o Agronegócio.</span>
+    <!-- ===== CONTATO ===== -->
+    <section id="contato" style="background:var(--bg2);border-top:1px solid var(--border);">
+        <div class="wrap">
+            <div class="contato-inner reveal">
+                <div class="section-label" style="display:inline-block;margin-bottom:14px;">contato</div>
+                <h2>Vamos mapear algo juntos?</h2>
+                <p class="lead">
+                    Aberto a <strong>oportunidades profissionais</strong> em análise espacial, engenharia de dados geoespaciais e desenvolvimento GIS.
+                    Interesse especial em projetos para o <strong>Agronegócio</strong>.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10">
-                    <a href="mailto:marcosdejair497@gmail.com" class="group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-geo-600 to-geo-500 text-white font-semibold hover:from-geo-500 hover:to-geo-400 transition-all shadow-lg shadow-geo-500/20 hover:shadow-geo-500/35 transform hover:-translate-y-0.5 w-full sm:w-auto">
-                        <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>Enviar E-mail
+                <div class="contato-actions">
+                    <a href="mailto:marcosdejair497@gmail.com" class="btn-primary">
+                        <i class="fas fa-envelope" aria-hidden="true"></i> Enviar e-mail
                     </a>
-                    <a href="https://linkedin.com/in/marcosleal-cyber" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-slate-800/60 border border-slate-700 text-slate-300 font-semibold hover:bg-slate-800 hover:border-geo-500/25 hover:text-white transition-all w-full sm:w-auto">
-                        <i class="fab fa-linkedin text-ocean-400"></i>LinkedIn
+                    <a href="https://linkedin.com/in/marcosleal-cyber" target="_blank" rel="noopener" class="btn-ghost">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
                     </a>
                 </div>
-                <div class="flex items-center justify-center gap-3.5">
-                    <a href="https://github.com/cursoctl" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Marcos Leal" class="w-11 h-11 rounded-full glass-card border border-slate-700 flex items-center justify-center text-slate-400 hover:text-geo-400 hover:border-geo-500/25 transition-all group">
-                        <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
+                <div class="social-row">
+                    <a href="https://github.com/cursoctl" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
-                    <a href="https://linkedin.com/in/marcosleal-cyber" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Marcos Leal" class="w-11 h-11 rounded-full glass-card border border-slate-700 flex items-center justify-center text-slate-400 hover:text-ocean-400 hover:border-ocean-500/25 transition-all group">
-                        <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
+                    <a href="https://linkedin.com/in/marcosleal-cyber" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
                     </a>
-                    <a href="mailto:marcosdejair497@gmail.com" aria-label="Enviar e-mail para Marcos Leal" class="w-11 h-11 rounded-full glass-card border border-slate-700 flex items-center justify-center text-slate-400 hover:text-geo-400 hover:border-geo-500/25 transition-all group">
-                        <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
+                    <a href="mailto:marcosdejair497@gmail.com" class="social-btn" aria-label="E-mail">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="border-t border-slate-800/30 py-6 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span class="text-slate-500 text-xs font-mono">© 2026 Marcos Leal · Geoprocessamento · UFPel</span>
-            <span class="text-slate-600 text-[10px] font-mono flex items-center gap-2">
-                <span>Centro de Engenharias</span>
-                <span class="w-0.5 h-0.5 rounded-full bg-slate-600"></span>
-                <span class="text-ocean-400">LabSG</span>
-            </span>
-        </div>
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Marcos Dejair Oliveira Leal · Geoprocessamento · <span>Python</span> · <span>PostGis</span>
     </footer>
 
-    <!-- ========== SCRIPTS ========== -->
+    <!-- SCRIPTS -->
     <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const btn = document.getElementById('menu-btn');
-            const icon = document.getElementById('menu-icon');
-            const isHidden = menu.classList.toggle('hidden');
-            btn.setAttribute('aria-expanded', String(!isHidden));
-            icon.classList.toggle('fa-bars', isHidden);
-            icon.classList.toggle('fa-xmark', !isHidden);
-        }
-
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
-                document.getElementById('menu-btn').setAttribute('aria-expanded', 'false');
-                document.getElementById('menu-icon').classList.add('fa-bars');
-                document.getElementById('menu-icon').classList.remove('fa-xmark');
-            });
+    // ── Mobile menu ──────────────────────────────────────────
+    function toggleMenu() {
+        const m = document.getElementById('mobile-menu');
+        const btn = document.getElementById('menu-btn');
+        const icon = document.getElementById('menu-icon');
+        const open = m.style.display === 'block';
+        m.style.display = open ? 'none' : 'block';
+        btn.setAttribute('aria-expanded', String(!open));
+        icon.className = open ? 'fas fa-bars' : 'fas fa-xmark';
+    }
+    document.querySelectorAll('#mobile-menu a').forEach(a => {
+        a.addEventListener('click', () => {
+            document.getElementById('mobile-menu').style.display = 'none';
+            document.getElementById('menu-btn').setAttribute('aria-expanded', 'false');
+            document.getElementById('menu-icon').className = 'fas fa-bars';
         });
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+            document.getElementById('mobile-menu').style.display = 'none';
+        }
+    });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                const menu = document.getElementById('mobile-menu');
-                if (!menu.classList.contains('hidden')) toggleMobileMenu();
+    // ── Scroll: nav border ───────────────────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // ── Reveal on scroll ─────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                // Animate skill bars inside
+                e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                    setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 200);
+                });
+                revealObserver.unobserve(e.target);
             }
         });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('shadow-lg', window.scrollY > 20);
-            navbar.classList.toggle('shadow-black/30', window.scrollY > 20);
+    // ── Counter animation ─────────────────────────────────────
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const el = e.target;
+                const target = parseInt(el.dataset.target);
+                if (target > 100) {
+                    el.textContent = target;
+                } else {
+                    let cur = 0;
+                    const step = Math.ceil(target / 20);
+                    const timer = setInterval(() => {
+                        cur = Math.min(cur + step, target);
+                        el.textContent = cur;
+                        if (cur >= target) clearInterval(timer);
+                    }, 40);
+                }
+                counterObserver.unobserve(el);
+            }
         });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
 
-        const revealEls = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('active'), index * 40);
-                    
-                    const bars = entry.target.querySelectorAll('.skill-bar');
-                    bars.forEach(bar => {
-                        if (bar.dataset.width) {
-                            setTimeout(() => { bar.style.width = bar.dataset.width; }, 300);
-                        }
-                    });
-                    
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-        revealEls.forEach(el => observer.observe(el));
+    // ── Coord animation ───────────────────────────────────────
+    const latEl = document.getElementById('coord-lat');
+    const lngEl = document.getElementById('coord-lng');
+    if (latEl && lngEl) {
+        let t = 0;
+        setInterval(() => {
+            t += 0.02;
+            latEl.textContent = 'LAT ' + (-31.7654 + Math.sin(t) * 0.003).toFixed(4) + '°';
+            lngEl.textContent = 'LNG ' + (-52.3376 + Math.cos(t * 0.7) * 0.003).toFixed(4) + '°';
+        }, 600);
+    }
 
-        const statNumbers = document.querySelectorAll('.stat-number');
-        const statObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const target = parseInt(el.dataset.count);
-                    if (target <= 100) {
-                        let current = 0;
-                        const increment = Math.max(1, Math.ceil(target / 25));
-                        const timer = setInterval(() => {
-                            current += increment;
-                            if (current >= target) { current = target; clearInterval(timer); }
-                            el.textContent = current;
-                        }, 25);
-                    } else {
-                        el.textContent = target;
-                    }
-                    statObserver.unobserve(el);
-                }
-            });
-        }, { threshold: 0.5 });
-        statNumbers.forEach(el => statObserver.observe(el));
-
-        const latEl = document.getElementById('coord-lat');
-        const lngEl = document.getElementById('coord-lng');
-        if (latEl && lngEl) {
-            let t = 0;
-            setInterval(() => {
-                t += 0.015;
-                const lat = -31.7654 + Math.sin(t) * 0.002;
-                const lng = -52.3376 + Math.cos(t * 0.8) * 0.002;
-                latEl.textContent = `LAT ${lat.toFixed(4)}°`;
-                lngEl.textContent = `LNG ${lng.toFixed(4)}°`;
-            }, 500);
-        }
-
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                if (window.scrollY >= section.offsetTop - 120) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+    // ── Map filter ────────────────────────────────────────────
+    document.querySelectorAll('.fbtn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            document.querySelectorAll('#mapas-grid .map-card').forEach(card => {
+                const cats = card.dataset.category.split(' ');
+                const show = filter === 'all' || cats.includes(filter);
+                card.style.opacity = show ? '1' : '0';
+                card.style.pointerEvents = show ? '' : 'none';
+                setTimeout(() => { card.style.display = show ? '' : 'none'; }, show ? 0 : 300);
+                if (show) setTimeout(() => { card.style.opacity = '1'; }, 50);
             });
         });
+    });
 
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const mapItems = document.querySelectorAll('#mapas-grid .project-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filter = btn.dataset.filter;
-
-                mapItems.forEach(item => {
-                    const categories = item.dataset.category.split(' ');
-                    if (filter === 'all' || categories.includes(filter)) {
-                        item.style.display = '';
-                        item.removeAttribute('aria-hidden');
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, 50);
-                    } else {
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(8px)';
-                        item.setAttribute('aria-hidden', 'true');
-                        setTimeout(() => { item.style.display = 'none'; }, 400);
-                    }
-                });
-            });
+    // ── Active nav ────────────────────────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
+    window.addEventListener('scroll', () => {
+        let cur = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 100) cur = s.id;
         });
-
-        console.log('%c🌍 Marcos Leal · Analista GIS (LabSG - UFPel)', 'font-size: 18px; font-weight: bold; color: #4ade80;');
-        console.log('%c🛰️ Geodésia · GNSS · Python · Django · PostGIS · Agro', 'font-size: 13px; color: #94a3b8;');
+        navAs.forEach(a => {
+            a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--green)' : '';
+        });
+    }, { passive: true });
     </script>
 </body>
 </html>
