@@ -13,7 +13,7 @@
 <meta property="og:description" content="Especialista em análise espacial, automação de workflows GIS e visualização de dados territoriais com foco em Agronegócio." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cursoctl.github.io/" />
-<meta property="og:image" content="https://cursoctl.github.io/Ortomosaico.jpg" />
+<meta property="og:image" content="https://cursoctl.github.io/assets/mapas/Ortomosaico.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <link rel="canonical" href="https://cursoctl.github.io/" />
@@ -527,7 +527,7 @@ section{padding:95px 0}
   box-shadow:0 20px 55px rgba(0,0,0,.22);
 }
 
-/* Thumb com badge POR FORA (não é destruído pelo fallback) */
+/* Thumb com badge POR FORA */
 .thumb-wrap{position:relative}
 .proj-thumb,
 .map-thumb{
@@ -820,7 +820,6 @@ button:focus-visible{
   </div>
 
   <div class="hero-inner">
-    <!-- Coluna esquerda -->
     <div>
       <div class="hero-badge">
         <span class="blink" aria-hidden="true"></span>
@@ -870,7 +869,6 @@ button:focus-visible{
       </div>
     </div>
 
-    <!-- Coluna direita: code card -->
     <div class="hero-card reveal">
       <div class="hero-card-header">
         <div class="dot-red" aria-hidden="true"></div>
@@ -1083,7 +1081,7 @@ button:focus-visible{
   </div>
 </section>
 
-<!-- ============ MAPAS ============ -->
+<!-- ============ MAPAS (ÚNICO — duplicação corrigida) ============ -->
 <section id="mapas">
   <div class="wrap">
     <div class="section-label reveal">catálogo</div>
@@ -1099,23 +1097,7 @@ button:focus-visible{
 
     <div class="projects-grid" id="mapas-grid">
 
-     <!-- ============ MAPAS ============ -->
-<section id="mapas">
-  <div class="wrap">
-    <div class="section-label reveal">catálogo</div>
-    <h2 class="reveal" style="margin-bottom:8px;">Mapas Profissionais</h2>
-    <p class="reveal" style="color:var(--text-dim);margin-bottom:30px;max-width:62ch;">Galeria de produtos cartográficos desenvolvidos com dados abertos e ferramentas GIS.</p>
-
-    <div class="filter-row reveal">
-      <button class="fbtn active" data-filter="all">Todos</button>
-      <button class="fbtn" data-filter="agro">Agro</button>
-      <button class="fbtn" data-filter="ambiental">Ambiental</button>
-      <button class="fbtn" data-filter="urbano">Urbano</button>
-    </div>
-
-    <div class="projects-grid" id="mapas-grid">
-
-      <!-- MAPA 1 — Uso e Cobertura (imagem do outro repo) -->
+      <!-- MAPA 1 — Uso e Cobertura -->
       <div class="map-card reveal" data-category="ambiental agro">
         <div class="thumb-wrap">
           <div class="map-thumb">
@@ -1137,11 +1119,14 @@ button:focus-visible{
           </div>
           <div class="map-footer">
             <span class="map-meta">🌍 Meio Ambiente &amp; Agro</span>
+            <a href="https://github.com/cursoctl/pelotas-lulc-analysis" target="_blank" rel="noopener" class="proj-link">
+              <i class="fab fa-github"></i> Repositório
+            </a>
           </div>
         </div>
       </div>
 
-      <!-- MAPA 2 — NDVI (sem imagem ainda) -->
+      <!-- MAPA 2 — NDVI -->
       <div class="map-card reveal" data-category="agro">
         <div class="thumb-wrap">
           <div class="map-thumb">
@@ -1214,7 +1199,7 @@ button:focus-visible{
           </div>
           <div class="map-footer">
             <span class="map-meta">🏙️ Planejamento Urbano</span>
-              <a href="assets/mapas/projeto_cartografico_porto.pdf">
+            <a href="assets/mapas/Projeto%20Cartogr%C3%A1fico%20final.pdf" target="_blank" rel="noopener" class="proj-link">
               Ver PDF <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i>
             </a>
           </div>
@@ -1224,6 +1209,7 @@ button:focus-visible{
     </div>
   </div>
 </section>
+
 <!-- ============ PROJETOS ============ -->
 <section id="projetos" style="background:var(--bg2);border-top:1px solid var(--border);">
   <div class="wrap">
@@ -1394,7 +1380,7 @@ button:focus-visible{
 <!-- ============ SCRIPT ============ -->
 <script>
 /* =========================================================
-   MOBILE MENU (classe .open em vez de display inline)
+   MOBILE MENU
    ========================================================= */
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -1433,7 +1419,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     e.target.classList.add('visible');
-    // Anima as skill bars dentro do elemento revelado
     e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
       const w = bar.dataset.width || 0;
       setTimeout(() => { bar.style.width = w + '%'; }, 200);
@@ -1445,7 +1430,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 /* =========================================================
-   COUNTERS — todos os stats animam de forma consistente
+   COUNTERS — com fallback robusto
    ========================================================= */
 function animateCounter(el){
   const target = parseInt(el.dataset.target, 10);
@@ -1464,7 +1449,6 @@ function animateCounter(el){
   function tick(now){
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
-    // easeOutQuad
     const eased = 1 - (1 - progress) * (1 - progress);
     current = Math.round(eased * target);
     el.textContent = current + suffix;
@@ -1474,18 +1458,31 @@ function animateCounter(el){
   requestAnimationFrame(tick);
 }
 
+function forceCounters(){
+  document.querySelectorAll('.stat-num').forEach(el => {
+    if (el.textContent.trim() === '0') {
+      animateCounter(el);
+    }
+  });
+}
+
 const counterObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
     animateCounter(e.target);
     counterObserver.unobserve(e.target);
   });
-}, { threshold: 0.4 });
+}, { threshold: 0.2 });
 
 document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
 
+// Fallback garantido
+window.addEventListener('load', () => {
+  setTimeout(forceCounters, 1500);
+});
+
 /* =========================================================
-   COORD ANIMATION (hero card)
+   COORD ANIMATION
    ========================================================= */
 const latEl = document.getElementById('coord-lat');
 const lngEl = document.getElementById('coord-lng');
@@ -1501,7 +1498,7 @@ if (latEl && lngEl && !reduceMotion) {
 }
 
 /* =========================================================
-   MAP FILTER — corrigido
+   MAP FILTER
    ========================================================= */
 const fbtns = document.querySelectorAll('.fbtn');
 const mapCards = document.querySelectorAll('#mapas-grid .map-card');
@@ -1535,7 +1532,7 @@ fbtns.forEach(btn => {
 });
 
 /* =========================================================
-   ACTIVE NAV — via classe, não inline
+   ACTIVE NAV
    ========================================================= */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
