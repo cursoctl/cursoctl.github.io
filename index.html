@@ -1099,7 +1099,23 @@ button:focus-visible{
 
     <div class="projects-grid" id="mapas-grid">
 
-      <!-- MAPA 1 — Uso e Cobertura -->
+     <!-- ============ MAPAS ============ -->
+<section id="mapas">
+  <div class="wrap">
+    <div class="section-label reveal">catálogo</div>
+    <h2 class="reveal" style="margin-bottom:8px;">Mapas Profissionais</h2>
+    <p class="reveal" style="color:var(--text-dim);margin-bottom:30px;max-width:62ch;">Galeria de produtos cartográficos desenvolvidos com dados abertos e ferramentas GIS.</p>
+
+    <div class="filter-row reveal">
+      <button class="fbtn active" data-filter="all">Todos</button>
+      <button class="fbtn" data-filter="agro">Agro</button>
+      <button class="fbtn" data-filter="ambiental">Ambiental</button>
+      <button class="fbtn" data-filter="urbano">Urbano</button>
+    </div>
+
+    <div class="projects-grid" id="mapas-grid">
+
+      <!-- MAPA 1 — Uso e Cobertura (imagem do outro repo) -->
       <div class="map-card reveal" data-category="ambiental agro">
         <div class="thumb-wrap">
           <div class="map-thumb">
@@ -1121,20 +1137,14 @@ button:focus-visible{
           </div>
           <div class="map-footer">
             <span class="map-meta">🌍 Meio Ambiente &amp; Agro</span>
-            <!-- Descomente quando o PDF estiver no repositório:
-            <a href="assets/pdfs/mapa_lulc_pelotas.pdf" target="_blank" rel="noopener" class="proj-link">
-              Ver PDF <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i>
-            </a>
-            -->
           </div>
         </div>
       </div>
 
-      <!-- MAPA 2 — NDVI -->
+      <!-- MAPA 2 — NDVI (sem imagem ainda) -->
       <div class="map-card reveal" data-category="agro">
         <div class="thumb-wrap">
           <div class="map-thumb">
-            <!-- Substitua por: assets/mapas/mapa_ndvi.jpg -->
             <div class="thumb-fallback">🌾</div>
           </div>
           <div class="badge dev"><i class="fas fa-code"></i> Em dev</div>
@@ -1157,8 +1167,11 @@ button:focus-visible{
       <div class="map-card reveal" data-category="ambiental">
         <div class="thumb-wrap">
           <div class="map-thumb">
-            <!-- Substitua por: assets/mapas/biomas.png -->
-            <div class="thumb-fallback">🌳</div>
+            <img
+              src="assets/mapas/biomas.png"
+              alt="Mapa dos Biomas do Brasil"
+              loading="lazy" decoding="async"
+              onerror="this.outerHTML='<div class=\'thumb-fallback\'>🌳</div>'" />
           </div>
           <div class="badge done"><i class="fas fa-check-circle"></i> Disponível</div>
         </div>
@@ -1172,6 +1185,9 @@ button:focus-visible{
           </div>
           <div class="map-footer">
             <span class="map-meta">📊 Gestão Ambiental</span>
+            <a href="assets/mapas/mapa-biomas.pdf" target="_blank" rel="noopener" class="proj-link">
+              Ver PDF <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -1180,8 +1196,11 @@ button:focus-visible{
       <div class="map-card reveal" data-category="urbano">
         <div class="thumb-wrap">
           <div class="map-thumb">
-            <!-- Substitua por: assets/mapas/ortomosaico.jpg -->
-            <div class="thumb-fallback">🏙️</div>
+            <img
+              src="assets/mapas/Ortomosaico.jpg"
+              alt="Ortomosaico do Porto de Pelotas"
+              loading="lazy" decoding="async"
+              onerror="this.outerHTML='<div class=\'thumb-fallback\'>🏙️</div>'" />
           </div>
           <div class="badge done"><i class="fas fa-check-circle"></i> Disponível</div>
         </div>
@@ -1195,6 +1214,9 @@ button:focus-visible{
           </div>
           <div class="map-footer">
             <span class="map-meta">🏙️ Planejamento Urbano</span>
+              <a href="assets/mapas/projeto_cartografico_porto.pdf">
+              Ver PDF <i class="fas fa-external-link-alt" style="font-size:.65rem;"></i>
+            </a>
           </div>
         </div>
       </div>
@@ -1202,7 +1224,6 @@ button:focus-visible{
     </div>
   </div>
 </section>
-
 <!-- ============ PROJETOS ============ -->
 <section id="projetos" style="background:var(--bg2);border-top:1px solid var(--border);">
   <div class="wrap">
