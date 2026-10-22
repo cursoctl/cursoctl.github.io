@@ -849,22 +849,23 @@ button:focus-visible{
         </a>
       </div>
 
+      <!-- ATUALIZAÇÃO 1: Contadores realistas -->
       <div class="hero-stats">
         <div>
-          <span class="stat-val stat-num" data-target="7">0</span>
-          <span class="stat-label">Projetos</span>
+          <span class="stat-val stat-num" data-target="3">0</span>
+          <span class="stat-label">Projetos concluídos</span>
         </div>
         <div>
-          <span class="stat-val stat-num" data-target="9">0</span>
-          <span class="stat-label">Ferramentas</span>
+          <span class="stat-val stat-num" data-target="5">0</span>
+          <span class="stat-label">Ferramentas dominadas</span>
         </div>
         <div>
-          <span class="stat-val stat-num" data-target="3" data-suffix="+">0</span>
-          <span class="stat-label">Anos de estudo</span>
+          <span class="stat-val stat-num" data-target="2">0</span>
+          <span class="stat-label">Anos de estudo acadêmico</span>
         </div>
         <div>
           <span class="stat-val stat-num" data-target="2027" data-static="true">0</span>
-          <span class="stat-label">Formatura</span>
+          <span class="stat-label">Previsão formatura</span>
         </div>
       </div>
     </div>
@@ -1020,14 +1021,15 @@ button:focus-visible{
     <h2 class="reveal" style="margin-bottom:34px;">Soluções para o Agro</h2>
 
     <div class="projects-grid">
+      <!-- ATUALIZAÇÃO 2: Monitoramento de Desmatamento agora DISPONÍVEL -->
       <div class="proj-card reveal">
         <div class="thumb-wrap">
           <div class="proj-thumb"><i class="fas fa-satellite" aria-hidden="true"></i></div>
-          <div class="badge dev"><i class="fas fa-code"></i> Em desenvolvimento</div>
+          <div class="badge done"><i class="fas fa-check-circle"></i> Disponível</div>
         </div>
         <div class="proj-body">
           <div class="proj-title">Monitoramento de Desmatamento</div>
-          <p class="proj-desc">Análise de supressão vegetal com dados PRODES e MapBiomas, integrado a dashboard Power BI para acompanhamento em tempo real.</p>
+          <p class="proj-desc">Análise de supressão de vegetação nativa com dados PRODES e MapBiomas, integrado a banco de dados PostGIS e mapa interativo para auditoria de compliance socioambiental no agronegócio.</p>
           <div class="proj-tags">
             <span class="ptag">Python</span>
             <span class="ptag">Power BI</span>
@@ -1037,6 +1039,9 @@ button:focus-visible{
         </div>
         <div class="proj-footer">
           <span class="proj-meta">🌍 Meio Ambiente &amp; Agro</span>
+          <a href="https://github.com/cursoctl/monitoramento-desmatamento" target="_blank" rel="noopener" class="proj-link">
+            <i class="fab fa-github"></i> Repositório
+          </a>
         </div>
       </div>
 
@@ -1081,7 +1086,7 @@ button:focus-visible{
   </div>
 </section>
 
-<!-- ============ MAPAS (ÚNICO — duplicação corrigida) ============ -->
+<!-- ============ MAPAS ============ -->
 <section id="mapas">
   <div class="wrap">
     <div class="section-label reveal">catálogo</div>
@@ -1261,20 +1266,29 @@ button:focus-visible{
         </div>
       </div>
 
+      <!-- ATUALIZAÇÃO 3: Monitoramento Territorial agora FINALIZADO -->
       <div class="proj-card reveal">
         <div class="thumb-wrap">
           <div class="proj-thumb"><i class="fas fa-satellite-dish" aria-hidden="true"></i></div>
-          <div class="badge dev"><i class="fas fa-code"></i> Em desenvolvimento</div>
+          <div class="badge done"><i class="fas fa-check-circle"></i> Finalizado</div>
         </div>
         <div class="proj-body">
-          <div class="proj-title">Monitoramento Territorial com PostGIS</div>
-          <p class="proj-desc">Integração de dados SICAR, MapBiomas e PRODES para detecção de irregularidades territoriais em áreas rurais.</p>
+          <div class="proj-title">Monitoramento Territorial com PostGIS &amp; Python</div>
+          <p class="proj-desc">Pipeline modular de ETL para conformidade socioambiental (ESG) no Agronegócio. Extração automatizada do SICAR e alertas PRODES, reprojeção para SIRGAS 2000 (EPSG:4674), cargas idempotentes via UPSERT no PostGIS com Docker, índices GIST, View Materializada em UTM e mapas interativos via Folium.</p>
           <div class="proj-tags">
             <span class="ptag">PostGIS</span>
             <span class="ptag">Python</span>
-            <span class="ptag">SICAR</span>
-            <span class="ptag">MapBiomas</span>
+            <span class="ptag">GeoPandas</span>
+            <span class="ptag">Docker</span>
+            <span class="ptag">SQL</span>
+            <span class="ptag">Folium</span>
           </div>
+        </div>
+        <div class="proj-footer">
+          <span class="proj-meta">🌾 Compliance ESG · Agro</span>
+          <a href="https://github.com/cursoctl/monitoramento-desmatamento" target="_blank" rel="noopener" class="proj-link">
+            <i class="fab fa-github"></i> GitHub
+          </a>
         </div>
       </div>
     </div>
@@ -1321,6 +1335,20 @@ button:focus-visible{
           <span class="tl-tag hi">GeoPandas</span>
           <span class="tl-tag hi">OSMnx</span>
           <span class="tl-tag">Python</span>
+        </div>
+      </div>
+
+      <!-- ATUALIZAÇÃO 4: Novo marco do Monitoramento Territorial -->
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">out 2026</div>
+        <div class="tl-title">✅ Monitoramento Territorial com PostGIS — Finalizado</div>
+        <p class="tl-desc">Pipeline completo de ETL espacial integrado ao banco PostGIS e mapas interativos HTML via Folium para conformidade socioambiental.</p>
+        <div class="tl-tags">
+          <span class="tl-tag hi">PostGIS</span>
+          <span class="tl-tag hi">Python</span>
+          <span class="tl-tag hi">Docker</span>
+          <span class="tl-tag">Folium</span>
         </div>
       </div>
 
