@@ -849,23 +849,23 @@ button:focus-visible{
         </a>
       </div>
 
-      <!-- ATUALIZAÇÃO 1: Contadores realistas -->
+      <!-- CONTADORES — metas atualizadas para recrutador -->
       <div class="hero-stats">
-        <div>
+        <div class="stat-item">
           <span class="stat-val stat-num" data-target="3">0</span>
-          <span class="stat-label">Projetos concluídos</span>
+          <span class="stat-label">Projetos Concluídos</span>
         </div>
-        <div>
+        <div class="stat-item">
           <span class="stat-val stat-num" data-target="5">0</span>
-          <span class="stat-label">Ferramentas dominadas</span>
+          <span class="stat-label">Ferramentas Dominadas</span>
         </div>
-        <div>
+        <div class="stat-item">
           <span class="stat-val stat-num" data-target="2">0</span>
-          <span class="stat-label">Anos de estudo acadêmico</span>
+          <span class="stat-label">Anos de Estudo (LabSG)</span>
         </div>
-        <div>
-          <span class="stat-val stat-num" data-target="2027" data-static="true">0</span>
-          <span class="stat-label">Previsão formatura</span>
+        <div class="stat-item">
+          <span class="stat-val stat-num" data-target="2027" data-static="true">2027</span>
+          <span class="stat-label">Previsão Formatura</span>
         </div>
       </div>
     </div>
@@ -1021,7 +1021,7 @@ button:focus-visible{
     <h2 class="reveal" style="margin-bottom:34px;">Soluções para o Agro</h2>
 
     <div class="projects-grid">
-      <!-- ATUALIZAÇÃO 2: Monitoramento de Desmatamento agora DISPONÍVEL -->
+      <!-- Card Desmatamento — badge done + link para repositório dedicado -->
       <div class="proj-card reveal">
         <div class="thumb-wrap">
           <div class="proj-thumb"><i class="fas fa-satellite" aria-hidden="true"></i></div>
@@ -1029,7 +1029,7 @@ button:focus-visible{
         </div>
         <div class="proj-body">
           <div class="proj-title">Monitoramento de Desmatamento</div>
-          <p class="proj-desc">Análise de supressão de vegetação nativa com dados PRODES e MapBiomas, integrado a banco de dados PostGIS e mapa interativo para auditoria de compliance socioambiental no agronegócio.</p>
+          <p class="proj-desc">Análise de supressão de vegetação nativa com dados PRODES e MapBiomas, integrado a banco PostGIS e mapa interativo para auditoria de compliance socioambiental no agronegócio.</p>
           <div class="proj-tags">
             <span class="ptag">Python</span>
             <span class="ptag">Power BI</span>
@@ -1237,7 +1237,7 @@ button:focus-visible{
           </div>
         </div>
         <div class="proj-footer">
-          <span class="proj-meta"></span>
+          <span class="proj-meta">🌐 Web GIS</span>
           <a href="https://github.com/cursoctl/geolocalizacao" target="_blank" rel="noopener" class="proj-link">
             <i class="fab fa-github"></i> GitHub
           </a>
@@ -1259,14 +1259,14 @@ button:focus-visible{
           </div>
         </div>
         <div class="proj-footer">
-          <span class="proj-meta"></span>
+          <span class="proj-meta">🏙️ Planejamento Urbano</span>
           <a href="https://github.com/cursoctl/analise-equidade-espacial" target="_blank" rel="noopener" class="proj-link teal">
             <i class="fab fa-github"></i> GitHub
           </a>
         </div>
       </div>
 
-      <!-- ATUALIZAÇÃO 3: Monitoramento Territorial agora FINALIZADO -->
+      <!-- Monitoramento Territorial — FINALIZADO com pipeline ETL detalhado -->
       <div class="proj-card reveal">
         <div class="thumb-wrap">
           <div class="proj-thumb"><i class="fas fa-satellite-dish" aria-hidden="true"></i></div>
@@ -1286,7 +1286,7 @@ button:focus-visible{
         </div>
         <div class="proj-footer">
           <span class="proj-meta">🌾 Compliance ESG · Agro</span>
-          <a href="https://github.com/cursoctl/monitoramento-desmatamento" target="_blank" rel="noopener" class="proj-link">
+          <a href="https://github.com/cursoctl/monitoramento-territorial" target="_blank" rel="noopener" class="proj-link">
             <i class="fab fa-github"></i> GitHub
           </a>
         </div>
@@ -1314,6 +1314,20 @@ button:focus-visible{
         </div>
       </div>
 
+      <!-- out 2026 vem ANTES de nov 2026 (ordem cronológica corrigida) -->
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">out 2026</div>
+        <div class="tl-title">✅ Monitoramento Territorial com PostGIS — Concluído</div>
+        <p class="tl-desc">Pipeline de ETL espacial integrando SICAR, MapBiomas e PRODES com PostGIS e Python para detecção de irregularidades territoriais em áreas rurais.</p>
+        <div class="tl-tags">
+          <span class="tl-tag hi">PostGIS</span>
+          <span class="tl-tag hi">Python</span>
+          <span class="tl-tag hi">Docker</span>
+          <span class="tl-tag">Folium</span>
+        </div>
+      </div>
+
       <div class="tl-item reveal">
         <div class="tl-dot"></div>
         <div class="tl-period">nov 2026</div>
@@ -1335,20 +1349,6 @@ button:focus-visible{
           <span class="tl-tag hi">GeoPandas</span>
           <span class="tl-tag hi">OSMnx</span>
           <span class="tl-tag">Python</span>
-        </div>
-      </div>
-
-      <!-- ATUALIZAÇÃO 4: Novo marco do Monitoramento Territorial -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"></div>
-        <div class="tl-period">out 2026</div>
-        <div class="tl-title">✅ Monitoramento Territorial com PostGIS — Finalizado</div>
-        <p class="tl-desc">Pipeline completo de ETL espacial integrado ao banco PostGIS e mapas interativos HTML via Folium para conformidade socioambiental.</p>
-        <div class="tl-tags">
-          <span class="tl-tag hi">PostGIS</span>
-          <span class="tl-tag hi">Python</span>
-          <span class="tl-tag hi">Docker</span>
-          <span class="tl-tag">Folium</span>
         </div>
       </div>
 
